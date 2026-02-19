@@ -24,3 +24,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "AndroidStudy"
 include(":compose-basic")
+include(":compose-lazycolumn")
