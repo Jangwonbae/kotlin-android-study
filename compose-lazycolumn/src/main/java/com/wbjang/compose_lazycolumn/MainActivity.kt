@@ -113,7 +113,7 @@ fun RandomUserView(randomUser: RandomUser) {
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(10.dp)) {
 
-            ProfileImage(imgUrl = randomUser.profilePictureUrl,)
+            ProfileImage(imgUrl = randomUser.profilePictureUrl)
 
             Column() {
                 Text(text = randomUser.name,
