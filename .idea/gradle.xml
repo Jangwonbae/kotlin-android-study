@@ -10,6 +10,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/compose-basic" />
+            <option value="$PROJECT_DIR$/compose-box" />
             <option value="$PROJECT_DIR$/compose-column" />
             <option value="$PROJECT_DIR$/compose-lazycolumn" />
             <option value="$PROJECT_DIR$/compose-row" />
