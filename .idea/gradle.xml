@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/compose-box" />
             <option value="$PROJECT_DIR$/compose-boxwithconstraints" />
             <option value="$PROJECT_DIR$/compose-button" />
+            <option value="$PROJECT_DIR$/compose-checkbox" />
             <option value="$PROJECT_DIR$/compose-column" />
             <option value="$PROJECT_DIR$/compose-lazycolumn" />
             <option value="$PROJECT_DIR$/compose-row" />
