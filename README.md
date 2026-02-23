@@ -12,3 +12,4 @@ Compose UI 학습 중
 - Shape() 학습 및 Custom Shape 학습
 - Button() 및 사용자 인터렉션, Custom Elevation 학습
 - Checkbox() 및 Custom Checkbox 학습
+- SnackBar 학습

@@ -18,6 +18,7 @@
             <option value="$PROJECT_DIR$/compose-lazycolumn" />
             <option value="$PROJECT_DIR$/compose-row" />
             <option value="$PROJECT_DIR$/compose-shape" />
+            <option value="$PROJECT_DIR$/compose-snackbar" />
             <option value="$PROJECT_DIR$/compose-text" />
           </set>
         </option>
