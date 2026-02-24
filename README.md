@@ -16,3 +16,4 @@ Compose UI 학습 중
 - TextField() 학습
 - Ktor client api를 사용하여 예제 앱 만들기 학습
 - NavHost를 사용하여 Navigation 학습
+- compose api 가이드라인 학습 : https://github.com/androidx/androidx/blob/androidx-main/compose/docs/compose-api-guidelines.md
