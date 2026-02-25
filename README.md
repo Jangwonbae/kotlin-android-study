@@ -1,7 +1,7 @@
 # kotlin-android-study
 코틀린을 이용한 각종 안드로이드 실습
 
-Compose UI 학습 중
+Compose UI 학습 중 (26.02.19 ~ )
 - @Composable, @Preview, Scaffold, Column, Row 학습
 - lazyColumn, Card, Image, Glide 라이브러리 학습
 - Row(), Arrangement, Alignment 학습
@@ -18,3 +18,4 @@ Compose UI 학습 중
 - NavHost를 사용하여 Navigation 학습
 - compose api 가이드라인 학습 : https://github.com/androidx/androidx/blob/androidx-main/compose/docs/compose-api-guidelines.md
 - compose codelab 따라하기 1 : https://developer.android.com/codelabs/jetpack-compose-basics?hl=ko&continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fjetpack-compose-for-android-developers-1%3Fhl%3Dko%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fjetpack-compose-basics#0
+- compose codelab 따라하기 2 : https://developer.android.com/codelabs/jetpack-compose-layouts?hl=ko&continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fjetpack-compose-for-android-developers-1%3Fhl%3Dko%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fjetpack-compose-layouts#0
