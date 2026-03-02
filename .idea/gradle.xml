@@ -27,6 +27,7 @@
             <option value="$PROJECT_DIR$/compose-row" />
             <option value="$PROJECT_DIR$/compose-shape" />
             <option value="$PROJECT_DIR$/compose-snackbar" />
+            <option value="$PROJECT_DIR$/compose-staggered-grid" />
             <option value="$PROJECT_DIR$/compose-text" />
             <option value="$PROJECT_DIR$/compose-textfield" />
           </set>
