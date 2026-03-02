@@ -26,3 +26,4 @@ Compose UI 학습 중 (26.02.19 ~ )
 - compose codelab 따라하기 7 : [Jetpack Compose 탐색](https://developer.android.com/codelabs/jetpack-compose-navigation?hl=ko&continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fjetpack-compose-for-android-developers-3%3Fhl%3Dko%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fjetpack-compose-navigation#10)
 - compose Lottie animation 학습
 - compose Calendar, Date picker 학습 : [Date Picker](https://developer.android.com/develop/ui/compose/components/datepickers)
+- compose Pager 학습 : [Pager](https://developer.android.com/develop/ui/compose/layouts/pager)
