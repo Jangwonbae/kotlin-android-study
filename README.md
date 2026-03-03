@@ -1,7 +1,7 @@
 # kotlin-android-study
 코틀린을 이용한 각종 안드로이드 실습
 
-Compose UI 학습 중 (26.02.19 ~ )
+Compose UI 학습 (26.02.19 ~ 26.03.04)
 - @Composable, @Preview, Scaffold, Column, Row 학습
 - lazyColumn, Card, Image, Glide 라이브러리 학습
 - Row(), Arrangement, Alignment 학습
@@ -30,3 +30,4 @@ Compose UI 학습 중 (26.02.19 ~ )
 - compose Staggered Grid 학습
 - compose ModalNavigationDrawer 학습 : [ModalNavigationDrawer](https://developer.android.com/develop/ui/compose/components/drawer)
 - compose 카카오톡 로그인 연동 KakaoTalk Oauth 예제 앱 만들기 학습 : [Kakao Login](https://developers.kakao.com/docs/latest/ko/kakaologin/android)
+- compose ExoPlayer를 이용한 VideoBackground 학습

@@ -33,7 +33,7 @@ class KakaoOauthViewModel(application: Application) : AndroidViewModel(applicati
     fun kakaoLogout() {
         viewModelScope.launch {
             if(handleKakaoLogout()) {
-                isLoggedIn.emit(handleKakaoLogout())
+                isLoggedIn.emit(false)
             }
         }
     }

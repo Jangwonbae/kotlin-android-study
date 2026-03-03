@@ -71,6 +71,9 @@
       <SelectionState runConfigName="compose-kakaotalk-oauth">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
+      <SelectionState runConfigName="compose-background-exoplayer">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
     </selectionStates>
   </component>
 </project>
