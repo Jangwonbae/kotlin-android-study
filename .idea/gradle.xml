@@ -22,6 +22,7 @@
             <option value="$PROJECT_DIR$/compose-ktor-client-api" />
             <option value="$PROJECT_DIR$/compose-lazycolumn" />
             <option value="$PROJECT_DIR$/compose-lottie-animation" />
+            <option value="$PROJECT_DIR$/compose-modal-navigation-drawer" />
             <option value="$PROJECT_DIR$/compose-navigation" />
             <option value="$PROJECT_DIR$/compose-pager" />
             <option value="$PROJECT_DIR$/compose-row" />
