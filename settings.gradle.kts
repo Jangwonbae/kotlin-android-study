@@ -19,6 +19,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { url = java.net.URI("https://devrepo.kakao.com/nexus/content/groups/public/") }
     }
 }
 
@@ -45,3 +46,4 @@ include(":compose-calendar-timepicker")
 include(":compose-pager")
 include(":compose-staggered-grid")
 include(":compose-modal-navigation-drawer")
+include(":compose-kakaotalk-oauth")
