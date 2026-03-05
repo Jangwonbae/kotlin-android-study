@@ -74,6 +74,9 @@
       <SelectionState runConfigName="compose-background-exoplayer">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
+      <SelectionState runConfigName="hilt-kakaotalk-oauth">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
     </selectionStates>
   </component>
 </project>

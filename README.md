@@ -31,3 +31,6 @@ Compose UI 학습 (26.02.19 ~ 26.03.04)
 - compose ModalNavigationDrawer 학습 : [ModalNavigationDrawer](https://developer.android.com/develop/ui/compose/components/drawer)
 - compose 카카오톡 로그인 연동 KakaoTalk Oauth 예제 앱 만들기 학습 : [Kakao Login](https://developers.kakao.com/docs/latest/ko/kakaologin/android)
 - compose ExoPlayer를 이용한 VideoBackground 학습
+
+Hilt 학습
+- hilt 초기 Gradle 설정 및 기존 프로젝트에 적용해보기
