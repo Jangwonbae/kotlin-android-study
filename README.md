@@ -32,5 +32,8 @@ Compose UI 학습 (26.02.19 ~ 26.03.04)
 - compose 카카오톡 로그인 연동 KakaoTalk Oauth 예제 앱 만들기 학습 : [Kakao Login](https://developers.kakao.com/docs/latest/ko/kakaologin/android)
 - compose ExoPlayer를 이용한 VideoBackground 학습
 
+App Architecture 학습 (26.03.06 ~ )
+- app architecture codelab 따라하기 1 : [Compose의 ViewModel 및 상태](https://developer.android.com/codelabs/basic-android-kotlin-compose-viewmodel-and-state?hl=ko&continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-compose-unit-4-pathway-1%3Fhl%3Dko%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-compose-viewmodel-and-state#2)
+
 Hilt 학습
 - hilt 초기 Gradle 설정 및 기존 프로젝트에 적용해보기
