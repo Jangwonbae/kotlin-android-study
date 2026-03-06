@@ -40,6 +40,9 @@ android {
 }
 
 dependencies {
+    // Import the Compose BOM
+    implementation(platform(libs.androidx.compose.bom.v20230601))
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -55,6 +58,11 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+    //viewModel
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    //test
+    testImplementation("junit:junit:4.13.2")
 
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
+    androidTestImplementation(platform("androidx.compose:compose-bom:2023.06.01"))
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
 }
