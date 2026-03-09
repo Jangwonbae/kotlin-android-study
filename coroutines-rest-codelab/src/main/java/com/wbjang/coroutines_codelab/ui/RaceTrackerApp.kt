@@ -61,7 +61,6 @@ fun RaceTrackerApp() {
                 launch { playerOne.run() }
                 launch { playerTwo.run() }
             }
-            raceInProgress = false
         }
     }
 
@@ -80,7 +79,7 @@ fun RaceTrackerApp() {
 }
 
 @Composable
-private fun RaceTrackerScreen(
+fun RaceTrackerScreen(
     playerOne: RaceParticipant,
     playerTwo: RaceParticipant,
     isRunning: Boolean,

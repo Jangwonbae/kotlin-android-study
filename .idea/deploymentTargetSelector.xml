@@ -89,6 +89,9 @@
       <SelectionState runConfigName="coroutines-codelab">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
+      <SelectionState runConfigName="coroutines-rest-codelab2">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
     </selectionStates>
   </component>
 </project>
