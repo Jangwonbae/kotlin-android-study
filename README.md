@@ -35,6 +35,7 @@ Compose UI 학습 (26.02.19 ~ 26.03.04)
 App Architecture 학습 (26.03.06 ~ )
 - app architecture codelab 따라하기 1 : [Compose의 ViewModel 및 상태](https://developer.android.com/codelabs/basic-android-kotlin-compose-viewmodel-and-state?hl=ko&continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-compose-unit-4-pathway-1%3Fhl%3Dko%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-compose-viewmodel-and-state#2)
 - app architecture codelab 따라하기 2 : [ViewModel의 단위 테스트 작성](https://developer.android.com/codelabs/basic-android-kotlin-compose-test-viewmodel?hl=ko&continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-compose-unit-4-pathway-1%3Fhl%3Dko%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-compose-test-viewmodel#6)
+- app architecture codelab 따라하기 3 : [연습: ViewModel을 Dessert Clicker에 추가](https://developer.android.com/codelabs/basic-android-kotlin-compose-practice-viewmodel?hl=ko&continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-compose-unit-4-pathway-1%3Fhl%3Dko%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-compose-practice-viewmodel#0)
 
 Hilt 학습
 - hilt 초기 Gradle 설정 및 기존 프로젝트에 적용해보기

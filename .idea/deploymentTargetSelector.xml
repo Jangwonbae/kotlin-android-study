@@ -83,6 +83,9 @@
       <SelectionState runConfigName="app-architecture-codelab-day1">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
+      <SelectionState runConfigName="app-architecture-codelab-day3">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
     </selectionStates>
   </component>
 </project>
