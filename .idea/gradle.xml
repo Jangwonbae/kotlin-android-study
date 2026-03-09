@@ -35,6 +35,7 @@
             <option value="$PROJECT_DIR$/compose-staggered-grid" />
             <option value="$PROJECT_DIR$/compose-text" />
             <option value="$PROJECT_DIR$/compose-textfield" />
+            <option value="$PROJECT_DIR$/coroutines-rest-codelab" />
             <option value="$PROJECT_DIR$/hilt-kakaotalk-oauth" />
           </set>
         </option>
