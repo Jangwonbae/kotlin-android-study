@@ -39,7 +39,8 @@ App Architecture 학습 (26.03.06 ~ 26.03.09)
 
 Coroutines/rest-api 학습 (26.03.09 ~ )
 - coroutines/rest-api codelab 따라하기 1 : [Android 스튜디오의 코루틴 소개](https://developer.android.com/codelabs/basic-android-kotlin-compose-coroutines-android-studio?hl=ko&continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-compose-unit-5-pathway-1%3Fhl%3Dko%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-compose-coroutines-android-studio#8)
-- coroutines/rest-api codelab 따라하기 2 :[인터넷에서 데이터 가져오기](https://developer.android.com/codelabs/basic-android-kotlin-compose-getting-data-internet?hl=ko&continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-compose-unit-5-pathway-1%3Fhl%3Dko%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-compose-getting-data-internet#2)
+- coroutines/rest-api codelab 따라하기 2 : [인터넷에서 데이터 가져오기](https://developer.android.com/codelabs/basic-android-kotlin-compose-getting-data-internet?hl=ko&continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-compose-unit-5-pathway-1%3Fhl%3Dko%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-compose-getting-data-internet#2)
+- coroutines/rest-api codelab 따라하기 3 : [저장소 추가 및 수동 DI](https://developer.android.com/codelabs/basic-android-kotlin-compose-add-repository?hl=ko&continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-compose-unit-5-pathway-2%3Fhl%3Dko%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-compose-add-repository#12)
 
 Hilt 학습
 - hilt 초기 Gradle 설정 및 기존 프로젝트에 적용해보기
