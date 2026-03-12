@@ -39,6 +39,7 @@
             <option value="$PROJECT_DIR$/compose-textfield" />
             <option value="$PROJECT_DIR$/coroutines-rest-codelab" />
             <option value="$PROJECT_DIR$/coroutines-rest-codelab2" />
+            <option value="$PROJECT_DIR$/coroutines-rest-coil-codelab-bookshelf" />
             <option value="$PROJECT_DIR$/coroutines-rest-coil-codelab-practice" />
             <option value="$PROJECT_DIR$/hilt-kakaotalk-oauth" />
           </set>

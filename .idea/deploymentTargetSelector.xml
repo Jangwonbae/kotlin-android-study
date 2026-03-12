@@ -107,6 +107,9 @@
       <SelectionState runConfigName="compose-navigation-codelab-practice">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
+      <SelectionState runConfigName="coroutines-rest-coil-codelab-bookshelf">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
     </selectionStates>
   </component>
 </project>
