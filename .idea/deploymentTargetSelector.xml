@@ -104,6 +104,9 @@
       <SelectionState runConfigName="compose-navigation-codelab1">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
+      <SelectionState runConfigName="compose-navigation-codelab-practice">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
     </selectionStates>
   </component>
 </project>

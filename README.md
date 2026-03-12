@@ -34,6 +34,7 @@ Compose UI 학습 (26.02.19 ~ 26.03.04)
 
 Compose Navigation
 - compose navigation codelab 따라하기 1 : [Compose를 사용하여 화면 간 이동](https://developer.android.com/codelabs/basic-android-kotlin-compose-navigation?hl=ko&continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-compose-unit-4-pathway-2%3Fhl%3Dko%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-compose-navigation#6)
+- compose navigation codelab practice : [연습: 탐색 추가](https://developer.android.com/codelabs/basic-android-kotlin-compose-practice-navigation?hl=ko&continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-compose-unit-4-pathway-2%3Fhl%3Dko%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-compose-practice-navigation#6)
 
 App Architecture 학습 (26.03.06 ~ 26.03.09)
 - app architecture codelab 따라하기 1 : [Compose의 ViewModel 및 상태](https://developer.android.com/codelabs/basic-android-kotlin-compose-viewmodel-and-state?hl=ko&continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-compose-unit-4-pathway-1%3Fhl%3Dko%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-compose-viewmodel-and-state#2)
