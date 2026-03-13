@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.Card
 import androidx.compose.material3.Text
@@ -19,11 +20,14 @@ import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.wbjang.coroutines_rest_coil_codelab_bookshelf.R
+import com.wbjang.coroutines_rest_coil_codelab_bookshelf.data.Book
 import com.wbjang.coroutines_rest_coil_codelab_bookshelf.ui.theme.AndroidStudyTheme
 
 @Composable
 fun HomeScreen(
+    books: List<Book>,
     modifier: Modifier = Modifier
 ) {
     val scrollState = rememberLazyListState()
@@ -32,14 +36,17 @@ fun HomeScreen(
         modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(5.dp)
     ) {
-        items(30) {
-            BookCard()
+        items(books) { book ->
+            BookCard(book)
         }
     }
 }
 
 @Composable
-fun BookCard(modifier: Modifier = Modifier) {
+fun BookCard(
+    book : Book,
+    modifier: Modifier = Modifier
+) {
     Card(
         modifier = modifier
             .fillMaxWidth(),
@@ -60,8 +67,8 @@ fun BookCard(modifier: Modifier = Modifier) {
                     .fillMaxWidth(),
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                Text(text = "책 제목 책 제목 책 제목 책 제목")
-                Text(text = "책 저자 책 저자 책 저자 책 저자")
+                Text(text = book.title)
+                Text(text = book.authors)
             }
         }
 
@@ -72,6 +79,13 @@ fun BookCard(modifier: Modifier = Modifier) {
 @Composable
 fun HomeScreenPreview() {
     AndroidStudyTheme {
-        HomeScreen(modifier = Modifier.fillMaxSize().padding(start = 8.dp, end = 8.dp))
+        HomeScreen(
+            listOf(
+                Book("책 제목1", "책 저자1"),
+                Book("책 제목2", "책 저자2"),
+                Book("책 제목3", "책 저자3"),
+                Book("책 제목4", "책 저자4"))
+            ,
+            modifier = Modifier.fillMaxSize().padding(start = 8.dp, end = 8.dp))
     }
 }

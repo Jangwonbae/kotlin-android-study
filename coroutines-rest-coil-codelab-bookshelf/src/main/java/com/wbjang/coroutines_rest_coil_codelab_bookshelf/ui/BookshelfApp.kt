@@ -16,6 +16,7 @@ import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -24,18 +25,27 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.wbjang.coroutines_rest_coil_codelab_bookshelf.ui.screens.BookshelfViewModel
 import com.wbjang.coroutines_rest_coil_codelab_bookshelf.ui.screens.HomeScreen
 import com.wbjang.coroutines_rest_coil_codelab_bookshelf.ui.theme.AndroidStudyTheme
 
 @Composable
 fun BookshelfApp() {
+    val bookshelfViewModel : BookshelfViewModel = viewModel()
+    val books by bookshelfViewModel.books.collectAsState()
     AndroidStudyTheme {
         Scaffold(modifier = Modifier
             .fillMaxSize(),
-            topBar = { SearchBar() }
-            ) {
+            topBar = { SearchBar(
+                searchBooks = {
+                        query -> bookshelfViewModel.searchBooks(query)
+                })
+            }) {
             Surface(modifier = Modifier.padding(it)) {
-                HomeScreen(modifier = Modifier
+                HomeScreen(
+                    books,
+                    modifier = Modifier
                     .fillMaxSize()
                     .padding(start = 8.dp, end = 8.dp))
             }
@@ -44,7 +54,10 @@ fun BookshelfApp() {
 }
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SearchBar(modifier: Modifier = Modifier) {
+fun SearchBar(
+    searchBooks : (String) -> Unit,
+    modifier: Modifier = Modifier
+) {
     // 검색어 상태 관리
     var query by remember { mutableStateOf("") }
 
@@ -53,7 +66,10 @@ fun SearchBar(modifier: Modifier = Modifier) {
         title = {
             TextField(
                 value = query,
-                onValueChange = {query = it},
+                onValueChange = {
+                    query = it
+                    searchBooks(it)
+                                },
                 modifier = Modifier.fillMaxWidth(),
                 placeholder = {
                     Text(text = "Search")
