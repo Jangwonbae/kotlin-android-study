@@ -12,6 +12,7 @@ data class BookResponse(
 @SuppressLint("UnsafeOptInUsageError")
 @Serializable
 data class BookItem(
+    val id: String,
     val volumeInfo: VolumeInfo
 )
 

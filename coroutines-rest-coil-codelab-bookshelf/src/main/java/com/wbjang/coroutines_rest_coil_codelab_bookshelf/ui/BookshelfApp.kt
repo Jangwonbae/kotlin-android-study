@@ -26,14 +26,25 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.wbjang.coroutines_rest_coil_codelab_bookshelf.ui.screens.BookshelfViewModel
+import com.wbjang.coroutines_rest_coil_codelab_bookshelf.ui.screens.DetailScreen
 import com.wbjang.coroutines_rest_coil_codelab_bookshelf.ui.screens.HomeScreen
 import com.wbjang.coroutines_rest_coil_codelab_bookshelf.ui.theme.AndroidStudyTheme
 
+enum class BookshelfScreen {
+    Home,
+    Detail
+}
 @Composable
 fun BookshelfApp() {
     val bookshelfViewModel : BookshelfViewModel = viewModel(factory = BookshelfViewModel.Factory)
     val books by bookshelfViewModel.books.collectAsState()
+
+    val navController = rememberNavController()
+
     AndroidStudyTheme {
         Scaffold(modifier = Modifier
             .fillMaxSize(),
@@ -43,11 +54,30 @@ fun BookshelfApp() {
                 })
             }) {
             Surface(modifier = Modifier.padding(it)) {
-                HomeScreen(
-                    books,
-                    modifier = Modifier
-                    .fillMaxSize()
-                    .padding(start = 8.dp, end = 8.dp))
+                NavHost(navController = navController, startDestination = BookshelfScreen.Home.name) {
+                    composable(route = BookshelfScreen.Home.name) {
+                        HomeScreen(
+                            books,
+                            onBookClick = { bookId ->
+                                // 클릭 시 ID를 포함하여 상세 화면으로 이동
+                                navController.navigate("${BookshelfScreen.Detail.name}/$bookId")
+                            },
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .padding(start = 8.dp, end = 8.dp))
+                    }
+                    composable(route = "${BookshelfScreen.Detail.name}/{bookId}") { backStackEntry ->
+                        // 인자에서 bookId 추출
+                        val bookId = backStackEntry.arguments?.getString("bookId")
+                        val bookItem = bookshelfViewModel.getBookItem(bookId!!)
+                        DetailScreen(
+                            bookItem,
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .padding(start = 8.dp, end = 8.dp))
+                    }
+                }
+
             }
         }
     }

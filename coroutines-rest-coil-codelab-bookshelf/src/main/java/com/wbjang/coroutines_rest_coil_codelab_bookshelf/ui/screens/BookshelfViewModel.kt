@@ -26,6 +26,14 @@ class BookshelfViewModel(private val booksRepository: BooksRepository) : ViewMod
     fun searchBooks(query : String) {
 
     }
+    fun getBookItem(id: String) : BookItem? {
+        _books.value.forEach { bookItem ->
+            if (bookItem.id == id) {
+                return bookItem
+            }
+        }
+        return null
+    }
 
     fun getBooks(query: String) {
         viewModelScope.launch {
