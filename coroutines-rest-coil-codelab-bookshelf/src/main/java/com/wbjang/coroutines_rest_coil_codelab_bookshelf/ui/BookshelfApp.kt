@@ -32,7 +32,7 @@ import com.wbjang.coroutines_rest_coil_codelab_bookshelf.ui.theme.AndroidStudyTh
 
 @Composable
 fun BookshelfApp() {
-    val bookshelfViewModel : BookshelfViewModel = viewModel()
+    val bookshelfViewModel : BookshelfViewModel = viewModel(factory = BookshelfViewModel.Factory)
     val books by bookshelfViewModel.books.collectAsState()
     AndroidStudyTheme {
         Scaffold(modifier = Modifier
@@ -111,4 +111,3 @@ fun HomeScreenPreview() {
         BookshelfApp()
     }
 }
-

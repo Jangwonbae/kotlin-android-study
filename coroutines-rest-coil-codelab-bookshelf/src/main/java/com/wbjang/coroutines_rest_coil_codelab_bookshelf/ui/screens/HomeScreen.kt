@@ -1,11 +1,9 @@
 package com.wbjang.coroutines_rest_coil_codelab_bookshelf.ui.screens
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -20,14 +18,14 @@ import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.wbjang.coroutines_rest_coil_codelab_bookshelf.R
-import com.wbjang.coroutines_rest_coil_codelab_bookshelf.data.Book
+import com.wbjang.coroutines_rest_coil_codelab_bookshelf.network.BookItem
+import com.wbjang.coroutines_rest_coil_codelab_bookshelf.network.VolumeInfo
 import com.wbjang.coroutines_rest_coil_codelab_bookshelf.ui.theme.AndroidStudyTheme
 
 @Composable
 fun HomeScreen(
-    books: List<Book>,
+    books: List<BookItem>,
     modifier: Modifier = Modifier
 ) {
     val scrollState = rememberLazyListState()
@@ -37,14 +35,14 @@ fun HomeScreen(
         verticalArrangement = Arrangement.spacedBy(5.dp)
     ) {
         items(books) { book ->
-            BookCard(book)
+            BookCard(book = book.volumeInfo)
         }
     }
 }
 
 @Composable
 fun BookCard(
-    book : Book,
+    book : VolumeInfo,
     modifier: Modifier = Modifier
 ) {
     Card(
@@ -67,8 +65,18 @@ fun BookCard(
                     .fillMaxWidth(),
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                Text(text = book.title)
-                Text(text = book.authors)
+                Text(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    text = book.title
+                )
+
+                book.authors?.forEach { author ->
+                    Text(
+                        text = author,
+                        style = androidx.compose.material3.MaterialTheme.typography.bodySmall // 선택: 저자 스타일 적용
+                    )
+                }
             }
         }
 
@@ -79,13 +87,13 @@ fun BookCard(
 @Composable
 fun HomeScreenPreview() {
     AndroidStudyTheme {
-        HomeScreen(
-            listOf(
-                Book("책 제목1", "책 저자1"),
-                Book("책 제목2", "책 저자2"),
-                Book("책 제목3", "책 저자3"),
-                Book("책 제목4", "책 저자4"))
-            ,
-            modifier = Modifier.fillMaxSize().padding(start = 8.dp, end = 8.dp))
+//        HomeScreen(
+//            listOf(
+//                Book("책 제목1", "책 저자1"),
+//                Book("책 제목2", "책 저자2"),
+//                Book("책 제목3", "책 저자3"),
+//                Book("책 제목4", "책 저자4"))
+//            ,
+//            modifier = Modifier.fillMaxSize().padding(start = 8.dp, end = 8.dp))
     }
 }
