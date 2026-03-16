@@ -15,13 +15,20 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil3.compose.AsyncImage
+import coil3.request.ImageRequest
+import coil3.request.crossfade
 import com.wbjang.coroutines_rest_coil_codelab_bookshelf.R
 import com.wbjang.coroutines_rest_coil_codelab_bookshelf.network.BookItem
 import com.wbjang.coroutines_rest_coil_codelab_bookshelf.network.VolumeInfo
 import com.wbjang.coroutines_rest_coil_codelab_bookshelf.ui.theme.AndroidStudyTheme
+import kotlin.text.replace
 
 @Composable
 fun HomeScreen(
@@ -54,9 +61,15 @@ fun BookCard(
             modifier = Modifier.padding(8.dp),
             horizontalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            Image(
-                painter = painterResource(id = R.drawable.ic_launcher_foreground),
-                contentDescription = null,
+            AsyncImage(
+                model = ImageRequest.Builder(context = LocalContext.current)
+                    .data(book.imageLinks?.thumbnail?.replace("http:", "https:"))
+                    .crossfade(true)
+                    .build(),
+                error = painterResource(R.drawable.ic_broken_image),
+                placeholder = painterResource(R.drawable.loading_img),
+                contentDescription = book.description,
+                contentScale = ContentScale.Crop,
                 modifier = Modifier.size(108.dp)
             )
             Column(

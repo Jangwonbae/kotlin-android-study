@@ -27,5 +27,6 @@ data class VolumeInfo(
 @SuppressLint("UnsafeOptInUsageError")
 @Serializable
 data class ImageLinks(
+    val smallThumbnail: String,
     val thumbnail: String
 )
