@@ -51,7 +51,7 @@ Coroutines/rest-api 학습 (26.03.09 ~ 26.03.17)
 
 Data persistence 학습 (26.03.18 ~ )
 - Room codelab 따라하기 1 : [Room을 사용하여 데이터 유지](https://developer.android.com/codelabs/basic-android-kotlin-compose-persisting-data-room?hl=ko&continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-compose-unit-6-pathway-2%3Fhl%3Dko%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-compose-persisting-data-room#11)
-
+- Room codelab 따라하기 2 : [Room을 사용하여 데이터 읽기 및 업데이트](https://developer.android.com/codelabs/basic-android-kotlin-compose-update-data-room?hl=ko&continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-compose-unit-6-pathway-2%3Fhl%3Dko%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-compose-update-data-room#7)
 
 Hilt 학습
 - hilt 초기 Gradle 설정 및 기존 프로젝트에 적용해보기
