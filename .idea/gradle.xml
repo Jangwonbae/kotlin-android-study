@@ -42,6 +42,7 @@
             <option value="$PROJECT_DIR$/coroutines-rest-coil-codelab-bookshelf" />
             <option value="$PROJECT_DIR$/coroutines-rest-coil-codelab-practice" />
             <option value="$PROJECT_DIR$/data-persistence-room-codelab" />
+            <option value="$PROJECT_DIR$/data-persistence-room-codelab-practice" />
             <option value="$PROJECT_DIR$/hilt-kakaotalk-oauth" />
           </set>
         </option>
