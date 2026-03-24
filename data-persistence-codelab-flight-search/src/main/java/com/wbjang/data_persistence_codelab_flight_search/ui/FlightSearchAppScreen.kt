@@ -45,6 +45,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.wbjang.data_persistence_codelab_flight_search.R
 import com.wbjang.data_persistence_codelab_flight_search.data.Favorite
 import com.wbjang.data_persistence_codelab_flight_search.ui.item.FavoriteAirportList
+import com.wbjang.data_persistence_codelab_flight_search.ui.item.RecommendedAirportList
 import com.wbjang.data_persistence_codelab_flight_search.ui.item.SearchedAirportList
 import com.wbjang.data_persistence_codelab_flight_search.ui.theme.AndroidStudyTheme
 
@@ -67,7 +68,8 @@ fun FlightSearchAppScreen(
 
             ) {
             FlightSearchAppBody(
-                modifier = Modifier.padding(10.dp)
+                modifier = Modifier.padding(10.dp),
+                example = 3
             )
         }
     }
@@ -88,16 +90,21 @@ fun FlightSearchAppBar(modifier: Modifier = Modifier) {
 
 @Composable
 fun FlightSearchAppBody(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    example: Int
 ) {
     Column(
         modifier = modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.spacedBy(20.dp)
+        verticalArrangement = Arrangement.spacedBy(20.dp),
+
     ) {
         SearchBar()
-//        FavoriteAirportList()
-        SearchedAirportList()
 
+        when(example) {
+            1 -> FavoriteAirportList()
+            2 -> SearchedAirportList()
+            3 -> RecommendedAirportList()
+        }
     }
 }
 
@@ -155,6 +162,7 @@ fun SearchBar(
 @Composable
 fun FlightSearchAppScreenPreview() {
     AndroidStudyTheme(dynamicColor = false) {
-        FlightSearchAppBody(modifier = Modifier.padding(10.dp))
+        FlightSearchAppBody(modifier = Modifier.padding(10.dp),
+            example = 1)
     }
 }

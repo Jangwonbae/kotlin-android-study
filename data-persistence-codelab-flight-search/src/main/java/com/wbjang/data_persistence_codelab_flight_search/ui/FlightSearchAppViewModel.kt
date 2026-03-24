@@ -6,14 +6,14 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.wbjang.data_persistence_codelab_flight_search.FlightSearchApplication
-import com.wbjang.data_persistence_codelab_flight_search.data.AirPort
+import com.wbjang.data_persistence_codelab_flight_search.data.Airport
 import com.wbjang.data_persistence_codelab_flight_search.data.FlightSearchRepository
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
 
 class FlightSearchAppViewModel(flightSearchRepository: FlightSearchRepository): ViewModel() {
-    val flightSearchUiState: StateFlow<List<AirPort>> = flightSearchRepository.getAllAirportsStream()
+    val flightSearchUiState: StateFlow<List<Airport>> = flightSearchRepository.getAllAirportsStream()
         .stateIn(
             scope = viewModelScope,
             started = SharingStarted.WhileSubscribed(5_000),

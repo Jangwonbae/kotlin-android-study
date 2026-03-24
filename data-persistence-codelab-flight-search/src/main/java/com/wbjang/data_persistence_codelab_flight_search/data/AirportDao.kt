@@ -5,7 +5,7 @@ import androidx.room.Query
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface AirPortDao {
+interface AirportDao {
     @Query("SELECT * from airport ORDER BY name ASC")
-    fun getAllItems(): Flow<List<AirPort>>
+    fun getAllItems(): Flow<List<Airport>>
 }

@@ -21,6 +21,7 @@ fun SearchedAirportList() {
 @Composable
 fun SearchedAirportListScreenPreview() {
     AndroidStudyTheme(dynamicColor = false) {
-        FlightSearchAppBody(modifier = Modifier.padding(10.dp))
+        FlightSearchAppBody(modifier = Modifier.padding(10.dp),
+            example = 2)
     }
 }

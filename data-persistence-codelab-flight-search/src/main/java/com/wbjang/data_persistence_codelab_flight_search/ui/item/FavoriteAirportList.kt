@@ -22,6 +22,7 @@ fun FavoriteAirportList(){
 @Composable
 fun FavoriteAirportListScreenPreview() {
     AndroidStudyTheme(dynamicColor = false) {
-        FlightSearchAppBody(modifier = Modifier.padding(10.dp))
+        FlightSearchAppBody(modifier = Modifier.padding(10.dp),
+            example = 1)
     }
 }

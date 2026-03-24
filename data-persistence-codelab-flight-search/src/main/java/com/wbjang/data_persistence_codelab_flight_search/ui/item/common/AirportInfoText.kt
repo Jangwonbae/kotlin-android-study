@@ -2,6 +2,7 @@ package com.wbjang.data_persistence_codelab_flight_search.ui.item.common
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -19,7 +20,8 @@ fun AirportInfoText(
     airportName: String
 ) {
     Row(
-        modifier = modifier,
+        modifier = modifier
+            .fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Text(
@@ -31,6 +33,7 @@ fun AirportInfoText(
         Text(
             text = airportName,
             style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant, // 글자 색상을 연하게 설정
             fontSize = 12.sp
         )
     }
