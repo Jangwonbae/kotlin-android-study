@@ -1,16 +1,25 @@
 package com.wbjang.data_persistence_codelab_flight_search.ui.item
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavHostController
 import com.wbjang.data_persistence_codelab_flight_search.ui.FlightSearchAppBody
+import com.wbjang.data_persistence_codelab_flight_search.ui.SearchMode
 import com.wbjang.data_persistence_codelab_flight_search.ui.item.common.AirportInfoText
 import com.wbjang.data_persistence_codelab_flight_search.ui.navigation.NavigationDestination
 import com.wbjang.data_persistence_codelab_flight_search.ui.theme.AndroidStudyTheme
@@ -19,8 +28,18 @@ object RecommendedAirportListDestination: NavigationDestination {
 }
 @Composable
 fun RecommendedAirportListScreen(
-    modifier: Modifier = Modifier
+    searchQuery: String,
+    onNavigateBack: () -> Unit,
+    modifier: Modifier = Modifier,
+    recommendedAirportListViewModel: RecommendedAirportListViewModel = viewModel(factory = RecommendedAirportListViewModel.Factory)
 ) {
+    BackHandler {
+        onNavigateBack()
+    }
+    LaunchedEffect(searchQuery) {
+        recommendedAirportListViewModel.updateSearchQuery(searchQuery)
+    }
+    val recommendedAirports by recommendedAirportListViewModel.recommendedAirports.collectAsState()
     LazyColumn(
         modifier = modifier
             .fillMaxSize()
@@ -28,22 +47,26 @@ fun RecommendedAirportListScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
-        items(10) {
+        items(
+            items = recommendedAirports,
+            key = { it.id }
+        ) { airport->
             AirportInfoText(
-                modifier = Modifier.clickable(
-                  onClick = {}
-                ),
-                iataCode = "SVO",
-                airportName = "Leonardo da Vinci International Airport "
+                modifier = Modifier.clickable {},
+                iataCode = airport.iataCode,
+                airportName = airport.name
             )
         }
     }
-
 }
 @Preview(showBackground = true)
 @Composable
 fun RecommendedAirportListScreenPreview() {
     AndroidStudyTheme(dynamicColor = false) {
-        FlightSearchAppBody(modifier = Modifier.padding(10.dp))
+        FlightSearchAppBody(
+            searchQuery = "",
+            searchMode = SearchMode.RECOMMENDED,
+            onQueryChange = {},
+            modifier = Modifier.padding(10.dp))
     }
 }

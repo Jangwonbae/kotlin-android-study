@@ -8,6 +8,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.wbjang.data_persistence_codelab_flight_search.R
 import com.wbjang.data_persistence_codelab_flight_search.ui.FlightSearchAppBody
+import com.wbjang.data_persistence_codelab_flight_search.ui.SearchMode
 import com.wbjang.data_persistence_codelab_flight_search.ui.item.common.AirportList
 import com.wbjang.data_persistence_codelab_flight_search.ui.navigation.NavigationDestination
 import com.wbjang.data_persistence_codelab_flight_search.ui.theme.AndroidStudyTheme
@@ -27,6 +28,10 @@ fun FavoriteAirportListScreen(){
 @Composable
 fun FavoriteAirportListScreenPreview() {
     AndroidStudyTheme(dynamicColor = false) {
-        FlightSearchAppBody(modifier = Modifier.padding(10.dp))
+        FlightSearchAppBody(
+            searchQuery = "",
+            searchMode = SearchMode.FAVORITE,
+            onQueryChange = {},
+            modifier = Modifier.padding(10.dp))
     }
 }

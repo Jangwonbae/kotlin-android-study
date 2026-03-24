@@ -1,22 +1,18 @@
 package com.wbjang.data_persistence_codelab_flight_search.ui
 
-import android.graphics.drawable.Icon
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material.icons.filled.Star
-import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -29,33 +25,32 @@ import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.NavHost
-import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.wbjang.data_persistence_codelab_flight_search.R
+import com.wbjang.data_persistence_codelab_flight_search.ui.item.RecommendedAirportListDestination
 import com.wbjang.data_persistence_codelab_flight_search.ui.navigation.FlightSearchNavHost
 import com.wbjang.data_persistence_codelab_flight_search.ui.theme.AndroidStudyTheme
 
 @Composable
 fun FlightSearchAppScreen(
     modifier: Modifier = Modifier,
-    viewModel: FlightSearchAppViewModel = viewModel(factory = FlightSearchAppViewModel.Factory)
+    flightSearchAppViewModel: FlightSearchAppViewModel = viewModel(factory = FlightSearchAppViewModel.Factory)
 ) {
-    val flightSearchUiState by viewModel.flightSearchUiState.collectAsState()
-
+    val searchQuery by flightSearchAppViewModel.searchQuery.collectAsState()
+    val searchMode by flightSearchAppViewModel.searchMode.collectAsState()
     Scaffold(
         topBar = { FlightSearchAppBar() },
         modifier = modifier
@@ -68,6 +63,9 @@ fun FlightSearchAppScreen(
 
             ) {
             FlightSearchAppBody(
+                searchQuery = searchQuery,
+                searchMode = searchMode,
+                onQueryChange = { flightSearchAppViewModel.updateSearchQuery(it) },
                 modifier = Modifier.padding(10.dp)
             )
         }
@@ -89,30 +87,65 @@ fun FlightSearchAppBar(modifier: Modifier = Modifier) {
 
 @Composable
 fun FlightSearchAppBody(
+    searchQuery: String,
+    searchMode: SearchMode,
+    onQueryChange: (String) -> Unit,
     modifier: Modifier = Modifier
 ) {
+    val navController = rememberNavController()
+    LaunchedEffect(searchMode) {
+        when (searchMode) {
+            SearchMode.RECOMMENDED -> {
+                navController.navigate(RecommendedAirportListDestination.route) {
+                    launchSingleTop = true
+                }
+            }
+            SearchMode.FAVORITE -> {
+                if (navController.previousBackStackEntry != null) {
+                    navController.popBackStack()
+                }
+            }
+        }
+    }
     Column(
         modifier = modifier.fillMaxSize(),
         verticalArrangement = Arrangement.spacedBy(20.dp),
 
     ) {
-        SearchBar()
-        FlightSearchNavHost(navController = rememberNavController())
+        SearchBar(
+            query = searchQuery,
+            onQueryChange = onQueryChange
+        )
+        FlightSearchNavHost(
+            navController = navController,
+            searchQuery = searchQuery,
+            onNavigateBack = {
+                onQueryChange("")
+                navController.popBackStack()
+                /*TODO: 뒤로 가기 정리*/
+            }
+        )
     }
 }
 
 @Composable
 fun SearchBar(
-    modifier: Modifier = Modifier
+    query : String,
+    onQueryChange: (String) -> Unit,
+    modifier: Modifier = Modifier,
 ) {
-    var query by remember { mutableStateOf("") }
+    val focusRequester = remember { FocusRequester() }
+    val focusManager = LocalFocusManager.current
 
     TextField(
         value = query,
-        onValueChange = { query = it },
+        onValueChange = {
+            onQueryChange(it)
+        },
         modifier = modifier
-            .fillMaxWidth(),
-//            .height(65.dp),
+            .fillMaxWidth()
+            .focusRequester(focusRequester),
+        textStyle = MaterialTheme.typography.bodyMedium, // 입력 텍스트 스타일 적용
         placeholder = {
             Text(
                 text = stringResource(R.string.search_bar_label),
@@ -120,31 +153,53 @@ fun SearchBar(
             )
         },
         leadingIcon = {
-            IconButton(
-                onClick = {},
-                modifier = Modifier.padding(10.dp),
-                content = { Icon(Icons.Default.Search, contentDescription = null) }
-            )
+            if(query.isEmpty()){
+                IconButton(
+                    onClick = {focusRequester.requestFocus()},
+                    modifier = Modifier
+                        .padding(start = 8.dp)
+                        .size(48.dp),
+                            content = {
+                        Icon(Icons.Default.Search,
+                            contentDescription = null,
+                            modifier = Modifier.size(24.dp)
+                        ) }
+                )
+            }else {
+                Spacer(modifier = Modifier.width(48.dp))
+            }
         },
+
         trailingIcon = {
-            IconButton(
-                onClick = {},
-                modifier = Modifier.padding(10.dp),
-                content = { Icon(Icons.Filled.Close, contentDescription = null) }
-            )
+            if(query.isNotEmpty()) {
+                IconButton(
+                    onClick = {
+                        onQueryChange("")
+                    },
+                    modifier = Modifier
+                        .padding(end = 8.dp)
+                        .size(48.dp),
+                    content = {
+                        Icon(Icons.Filled.Close,
+                            contentDescription = null,
+                            modifier = Modifier.size(24.dp)
+                        )
+                    }
+                )
+            }
         },
-//        keyboardOptions = TODO(),
-//        keyboardActions = TODO(),
+        keyboardActions = KeyboardActions(
+            onSearch = {
+                focusManager.clearFocus()
+            }
+        ),
         singleLine = true,
-//        interactionSource = TODO(),
         shape = RoundedCornerShape(50),
         colors = TextFieldDefaults.colors(
-            focusedIndicatorColor = Color.Transparent,    // 포커스 되었을 때 밑줄
-            unfocusedIndicatorColor = Color.Transparent,  // 포커스 없을 때 밑줄
-            disabledIndicatorColor = Color.Transparent,   // 비활성화 시 밑줄
-            errorIndicatorColor = Color.Transparent,      // 에러 발생 시 밑줄
-
-            // 필요하다면 배경색도 투명하게 설정 (선택 사항)
+            focusedIndicatorColor = Color.Transparent,
+            unfocusedIndicatorColor = Color.Transparent,
+            disabledIndicatorColor = Color.Transparent,
+            errorIndicatorColor = Color.Transparent,
             focusedContainerColor = MaterialTheme.colorScheme.primaryContainer,
             unfocusedContainerColor = MaterialTheme.colorScheme.primaryContainer
         ),
@@ -155,6 +210,10 @@ fun SearchBar(
 @Composable
 fun FlightSearchAppScreenPreview() {
     AndroidStudyTheme(dynamicColor = false) {
-        FlightSearchAppBody(modifier = Modifier.padding(10.dp))
+        FlightSearchAppBody(
+            searchQuery = "",
+            searchMode = SearchMode.FAVORITE,
+            onQueryChange = {},
+            modifier = Modifier.padding(10.dp))
     }
 }

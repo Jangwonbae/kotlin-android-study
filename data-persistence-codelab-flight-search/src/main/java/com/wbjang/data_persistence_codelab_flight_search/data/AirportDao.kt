@@ -9,5 +9,6 @@ interface AirportDao {
     @Query("SELECT * from airport ORDER BY name ASC")
     fun getAllItems(): Flow<List<Airport>>
 
-
+    @Query("SELECT * FROM airport WHERE UPPER(iata_code) LIKE UPPER('%' || :query || '%') OR UPPER(name) LIKE UPPER('%' || :query || '%')")
+    fun searchAirports(query: String) : Flow<List<Airport>>
 }

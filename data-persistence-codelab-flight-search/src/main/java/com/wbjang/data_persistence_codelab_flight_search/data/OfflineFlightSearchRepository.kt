@@ -4,4 +4,6 @@ import kotlinx.coroutines.flow.Flow
 
 class OfflineFlightSearchRepository(private val airportDao: AirportDao, private val favoriteDao: FavoriteDao) :FlightSearchRepository {
     override fun getAllAirportsStream(): Flow<List<Airport>> = airportDao.getAllItems()
+    override fun searchAirports(query: String): Flow<List<Airport>> = airportDao.searchAirports(query)
+
 }

@@ -16,6 +16,8 @@ import com.wbjang.data_persistence_codelab_flight_search.ui.item.SearchedAirport
 @Composable
 fun FlightSearchNavHost(
     navController: NavHostController,
+    searchQuery: String,
+    onNavigateBack: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     NavHost(
@@ -30,7 +32,10 @@ fun FlightSearchNavHost(
             SearchedAirportListScreen()
         }
         composable(route = RecommendedAirportListDestination.route){
-            RecommendedAirportListScreen()
+            RecommendedAirportListScreen(
+                searchQuery,
+                onNavigateBack = onNavigateBack
+            )
         }
     }
 }

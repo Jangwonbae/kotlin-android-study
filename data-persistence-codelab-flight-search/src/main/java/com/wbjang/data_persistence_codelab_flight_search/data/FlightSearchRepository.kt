@@ -4,4 +4,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface FlightSearchRepository {
     fun getAllAirportsStream(): Flow<List<Airport>>
+
+    fun searchAirports(query: String) : Flow<List<Airport>>
+
 }
