@@ -42,11 +42,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavHost
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.wbjang.data_persistence_codelab_flight_search.R
-import com.wbjang.data_persistence_codelab_flight_search.data.Favorite
-import com.wbjang.data_persistence_codelab_flight_search.ui.item.FavoriteAirportList
-import com.wbjang.data_persistence_codelab_flight_search.ui.item.RecommendedAirportList
-import com.wbjang.data_persistence_codelab_flight_search.ui.item.SearchedAirportList
+import com.wbjang.data_persistence_codelab_flight_search.ui.navigation.FlightSearchNavHost
 import com.wbjang.data_persistence_codelab_flight_search.ui.theme.AndroidStudyTheme
 
 @Composable
@@ -68,8 +68,7 @@ fun FlightSearchAppScreen(
 
             ) {
             FlightSearchAppBody(
-                modifier = Modifier.padding(10.dp),
-                example = 3
+                modifier = Modifier.padding(10.dp)
             )
         }
     }
@@ -90,8 +89,7 @@ fun FlightSearchAppBar(modifier: Modifier = Modifier) {
 
 @Composable
 fun FlightSearchAppBody(
-    modifier: Modifier = Modifier,
-    example: Int
+    modifier: Modifier = Modifier
 ) {
     Column(
         modifier = modifier.fillMaxSize(),
@@ -99,12 +97,7 @@ fun FlightSearchAppBody(
 
     ) {
         SearchBar()
-
-        when(example) {
-            1 -> FavoriteAirportList()
-            2 -> SearchedAirportList()
-            3 -> RecommendedAirportList()
-        }
+        FlightSearchNavHost(navController = rememberNavController())
     }
 }
 
@@ -162,7 +155,6 @@ fun SearchBar(
 @Composable
 fun FlightSearchAppScreenPreview() {
     AndroidStudyTheme(dynamicColor = false) {
-        FlightSearchAppBody(modifier = Modifier.padding(10.dp),
-            example = 1)
+        FlightSearchAppBody(modifier = Modifier.padding(10.dp))
     }
 }

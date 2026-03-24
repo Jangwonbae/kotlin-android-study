@@ -9,10 +9,15 @@ import androidx.compose.ui.unit.dp
 import com.wbjang.data_persistence_codelab_flight_search.R
 import com.wbjang.data_persistence_codelab_flight_search.ui.FlightSearchAppBody
 import com.wbjang.data_persistence_codelab_flight_search.ui.item.common.AirportList
+import com.wbjang.data_persistence_codelab_flight_search.ui.navigation.NavigationDestination
 import com.wbjang.data_persistence_codelab_flight_search.ui.theme.AndroidStudyTheme
 
+object FavoriteAirportListDestination: NavigationDestination {
+    override val route = "favorite_airport_list"
+}
+
 @Composable
-fun FavoriteAirportList(){
+fun FavoriteAirportListScreen(){
     AirportList(
         listName = stringResource(R.string.airport_list_favorite_routes)
     )
@@ -22,7 +27,6 @@ fun FavoriteAirportList(){
 @Composable
 fun FavoriteAirportListScreenPreview() {
     AndroidStudyTheme(dynamicColor = false) {
-        FlightSearchAppBody(modifier = Modifier.padding(10.dp),
-            example = 1)
+        FlightSearchAppBody(modifier = Modifier.padding(10.dp))
     }
 }

@@ -11,12 +11,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.wbjang.data_persistence_codelab_flight_search.ui.FlightSearchAppBody
-import com.wbjang.data_persistence_codelab_flight_search.ui.item.common.AirportCard
 import com.wbjang.data_persistence_codelab_flight_search.ui.item.common.AirportInfoText
+import com.wbjang.data_persistence_codelab_flight_search.ui.navigation.NavigationDestination
 import com.wbjang.data_persistence_codelab_flight_search.ui.theme.AndroidStudyTheme
-
+object RecommendedAirportListDestination: NavigationDestination {
+    override val route = "recommended_airport_list"
+}
 @Composable
-fun RecommendedAirportList(
+fun RecommendedAirportListScreen(
     modifier: Modifier = Modifier
 ) {
     LazyColumn(
@@ -42,7 +44,6 @@ fun RecommendedAirportList(
 @Composable
 fun RecommendedAirportListScreenPreview() {
     AndroidStudyTheme(dynamicColor = false) {
-        FlightSearchAppBody(modifier = Modifier.padding(10.dp),
-            example = 3)
+        FlightSearchAppBody(modifier = Modifier.padding(10.dp))
     }
 }

@@ -8,4 +8,6 @@ import kotlinx.coroutines.flow.Flow
 interface AirportDao {
     @Query("SELECT * from airport ORDER BY name ASC")
     fun getAllItems(): Flow<List<Airport>>
+
+
 }
