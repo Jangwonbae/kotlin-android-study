@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">data-persistence-codelab-flight-search</string>
+    <string name="app_name">Flight Search</string>
+    <string name="search_bar_label">Enter departure airport</string>
+    <string name="airport_list_flights_from">Flights from</string>
+    <string name="airport_list_favorite_routes">Favorite Routes</string>
+    <string name="airport_card_depart">DEPART</string>
+    <string name="airport_card_arrive">ARRIVE</string>
 </resources>
