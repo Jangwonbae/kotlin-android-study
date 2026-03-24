@@ -45,6 +45,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.wbjang.data_persistence_codelab_flight_search.R
 import com.wbjang.data_persistence_codelab_flight_search.data.Favorite
 import com.wbjang.data_persistence_codelab_flight_search.ui.item.FavoriteAirportList
+import com.wbjang.data_persistence_codelab_flight_search.ui.item.SearchedAirportList
 import com.wbjang.data_persistence_codelab_flight_search.ui.theme.AndroidStudyTheme
 
 @Composable
@@ -94,7 +95,8 @@ fun FlightSearchAppBody(
         verticalArrangement = Arrangement.spacedBy(20.dp)
     ) {
         SearchBar()
-        FavoriteAirportList()
+//        FavoriteAirportList()
+        SearchedAirportList()
 
     }
 }

@@ -12,15 +12,14 @@ import com.wbjang.data_persistence_codelab_flight_search.ui.item.common.AirportL
 import com.wbjang.data_persistence_codelab_flight_search.ui.theme.AndroidStudyTheme
 
 @Composable
-fun FavoriteAirportList(){
+fun SearchedAirportList() {
     AirportList(
-        listName = stringResource(R.string.airport_list_favorite_routes)
+        listName = stringResource(R.string.airport_list_flights_from)
     )
 }
-
 @Preview(showBackground = true)
 @Composable
-fun FavoriteAirportListScreenPreview() {
+fun SearchedAirportListScreenPreview() {
     AndroidStudyTheme(dynamicColor = false) {
         FlightSearchAppBody(modifier = Modifier.padding(10.dp))
     }

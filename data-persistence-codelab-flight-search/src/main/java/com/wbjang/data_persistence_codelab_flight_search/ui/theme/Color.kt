@@ -8,7 +8,7 @@ val md_theme_light_onPrimary = Color(0xFFFFFFFF)
 val md_theme_light_primaryContainer = Color(0xFFD6E3FF)
 val md_theme_light_onPrimaryContainer = Color(0xFF001B3E)
 
-val md_theme_light_secondary = Color(0xFF565E71) // 차분한 그레이 블루
+val md_theme_light_secondary = Color(0xFFBEC6DC)
 val md_theme_light_onSecondary = Color(0xFFFFFFFF)
 val md_theme_light_secondaryContainer = Color(0xFFDAE2F9)
 val md_theme_light_onSecondaryContainer = Color(0xFF131C2B)
