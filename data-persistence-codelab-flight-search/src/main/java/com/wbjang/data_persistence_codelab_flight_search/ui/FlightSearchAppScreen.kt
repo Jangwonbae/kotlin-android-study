@@ -1,5 +1,6 @@
 package com.wbjang.data_persistence_codelab_flight_search.ui
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -10,6 +11,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Search
@@ -28,13 +30,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -110,7 +116,6 @@ fun FlightSearchAppBody(
     Column(
         modifier = modifier.fillMaxSize(),
         verticalArrangement = Arrangement.spacedBy(20.dp),
-
     ) {
         SearchBar(
             query = searchQuery,
@@ -136,7 +141,13 @@ fun SearchBar(
 ) {
     val focusRequester = remember { FocusRequester() }
     val focusManager = LocalFocusManager.current
+    var isFocused by remember { mutableStateOf(false) }
 
+
+    BackHandler(enabled = isFocused) {
+        // 뒤로 가기를 눌렀을 때 포커스를 해제함
+        focusManager.clearFocus()
+    }
     TextField(
         value = query,
         onValueChange = {
@@ -144,7 +155,11 @@ fun SearchBar(
         },
         modifier = modifier
             .fillMaxWidth()
-            .focusRequester(focusRequester),
+            .focusRequester(focusRequester)
+            .onFocusChanged { state ->
+                // 포커스 상태를 추적하여 BackHandler의 활성화 여부 결정
+                isFocused = state.isFocused
+            },
         textStyle = MaterialTheme.typography.bodyMedium, // 입력 텍스트 스타일 적용
         placeholder = {
             Text(
@@ -188,8 +203,11 @@ fun SearchBar(
                 )
             }
         },
+        keyboardOptions = KeyboardOptions(
+            imeAction = ImeAction.Done
+        ),
         keyboardActions = KeyboardActions(
-            onSearch = {
+            onDone = {
                 focusManager.clearFocus()
             }
         ),

@@ -17,7 +17,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.NavHostController
 import com.wbjang.data_persistence_codelab_flight_search.ui.FlightSearchAppBody
 import com.wbjang.data_persistence_codelab_flight_search.ui.SearchMode
 import com.wbjang.data_persistence_codelab_flight_search.ui.item.common.AirportInfoText
