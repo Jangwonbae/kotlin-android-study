@@ -55,6 +55,12 @@ Data persistence 학습 (26.03.18 ~ )
 - Room codelab 따라하기 3 : [연습: Bus Schedule 앱 빌드](https://developer.android.com/codelabs/basic-android-kotlin-compose-practice-bus-schedule-app?hl=ko&continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-compose-unit-6-pathway-2%3Fhl%3Dko%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-compose-practice-bus-schedule-app#7)
 - Preferences DataStore codelab 따라하기 1 : [DataStore를 사용하여 로컬에 환경설정 저장](https://developer.android.com/codelabs/basic-android-kotlin-compose-datastore?hl=ko&continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-compose-unit-6-pathway-3%3Fhl%3Dko%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-compose-datastore#0)
 - Room codelab project : [프로젝트: Room 활용하여 Flight Search 앱 만들기](https://developer.android.com/codelabs/basic-android-kotlin-compose-flight-search?hl=ko&continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-compose-unit-6-pathway-3%3Fhl%3Dko%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-compose-flight-search#3)
+  
+  Project Structure
+  
+  This project follows the MVVM architecture and is organized into the following package structure:
+  <img width="704" height="926" alt="image" src="https://github.com/user-attachments/assets/253a85bd-2541-4460-9aae-4eccb2d1d4d7" />
+
 
 Hilt 학습
 - hilt 초기 Gradle 설정 및 기존 프로젝트에 적용해보기
