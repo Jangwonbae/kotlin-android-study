@@ -61,6 +61,11 @@ Data persistence 학습 (26.03.18 ~ )
   This project follows the MVVM architecture and is organized into the following package structure:
   <img width="704" height="926" alt="image" src="https://github.com/user-attachments/assets/253a85bd-2541-4460-9aae-4eccb2d1d4d7" />
 
+  Screen Shot
+  
+  <img width="704" height="434" alt="Flight_Search_App_Screen_Shot" src="https://github.com/user-attachments/assets/df261ff6-741d-4ea2-91f0-8660a8c8c4c3" />
+
+
 
 Hilt 학습
 - hilt 초기 Gradle 설정 및 기존 프로젝트에 적용해보기
