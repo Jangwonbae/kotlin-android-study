@@ -42,16 +42,8 @@ fun SearchedAirportListScreen(
         }
     }
     val departureAirport by searchedAirportListViewModel.departureAirport.collectAsState()
-    val arrivalAirports by searchedAirportListViewModel.arrivalAirports.collectAsState()
 
-    val flightDetails by remember(departureAirport, arrivalAirports) {
-        derivedStateOf {
-            val departure = departureAirport ?: return@derivedStateOf emptyList<FlightDetail>()
-            arrivalAirports.map { arrival ->
-                FlightDetail(departure, arrival)
-            }
-        }
-    }
+    val flightDetails by searchedAirportListViewModel.flightDetails.collectAsState()
     
     BackHandler {
         onClearSelectedAirport()
@@ -59,7 +51,11 @@ fun SearchedAirportListScreen(
 
     AirportList(
         listName = stringResource(R.string.airport_list_flights_from) + " ${departureAirport?.iataCode}",
-        flightDetails = flightDetails
+        flightDetails = flightDetails,
+        onFavoriteClick = { depart, dest, isFav ->
+            // ViewModel의 함수 호출
+            searchedAirportListViewModel.toggleFavorite(depart, dest, isFav)
+        }
     )
 }
 @Preview(showBackground = true)

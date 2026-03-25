@@ -11,6 +11,9 @@ interface FlightSearchRepository {
 
     fun getArrivalAirportsStream(departureCode: String): Flow<List<Airport>>
 
+    fun getFavoriteAirportsStream(): Flow<List<Favorite>>
 
+    suspend fun insertFavorite(favorite: Favorite)
 
+    suspend fun deleteFavorite(departureCode: String, destinationCode: String)
 }

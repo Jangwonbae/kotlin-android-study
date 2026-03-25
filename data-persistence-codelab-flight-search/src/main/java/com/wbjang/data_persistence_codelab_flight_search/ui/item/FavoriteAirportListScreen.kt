@@ -6,6 +6,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.wbjang.data_persistence_codelab_flight_search.R
 import com.wbjang.data_persistence_codelab_flight_search.ui.FlightSearchAppBody
 import com.wbjang.data_persistence_codelab_flight_search.ui.SearchMode
@@ -19,6 +20,8 @@ object FavoriteAirportListDestination: NavigationDestination {
 
 @Composable
 fun FavoriteAirportListScreen(){
+    val favoriteAirportListViewModel : FavoriteAirportListViewModel = viewModel(factory = FavoriteAirportListViewModel.Factory)
+
 //    AirportList(
 //        listName = stringResource(R.string.airport_list_favorite_routes)
 //    )

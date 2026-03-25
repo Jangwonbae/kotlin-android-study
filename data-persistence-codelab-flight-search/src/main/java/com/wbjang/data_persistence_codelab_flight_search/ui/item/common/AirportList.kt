@@ -18,8 +18,8 @@ import com.wbjang.data_persistence_codelab_flight_search.data.FlightDetail
 fun AirportList(
     listName: String,
     flightDetails: List<FlightDetail>,
+    onFavoriteClick: (String, String, Boolean) -> Unit,
     modifier: Modifier = Modifier,
-
     ) {
     Column(
         modifier = modifier
@@ -37,7 +37,10 @@ fun AirportList(
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             items(items = flightDetails) { flightDetail ->
-                AirportCard(flightDetail.departureAirport, flightDetail.arrivalAirport)
+                AirportCard(
+                    flightDetail = flightDetail,
+                    onFavoriteClick = onFavoriteClick
+                )
             }
         }
     }
