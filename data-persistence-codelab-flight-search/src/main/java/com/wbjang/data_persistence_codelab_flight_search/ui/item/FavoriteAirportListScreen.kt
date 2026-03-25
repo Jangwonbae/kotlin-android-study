@@ -14,6 +14,7 @@ import com.wbjang.data_persistence_codelab_flight_search.ui.FlightSearchAppBody
 import com.wbjang.data_persistence_codelab_flight_search.ui.SearchMode
 import com.wbjang.data_persistence_codelab_flight_search.ui.item.common.AirportList
 import com.wbjang.data_persistence_codelab_flight_search.ui.navigation.NavigationDestination
+import com.wbjang.data_persistence_codelab_flight_search.ui.preview.SampleDataProvider
 import com.wbjang.data_persistence_codelab_flight_search.ui.theme.AndroidStudyTheme
 
 object FavoriteAirportListDestination: NavigationDestination {
@@ -38,11 +39,11 @@ fun FavoriteAirportListScreen(
 @Preview(showBackground = true)
 @Composable
 fun FavoriteAirportListScreenPreview() {
-//    AndroidStudyTheme(dynamicColor = false) {
-//        FlightSearchAppBody(
-//            searchQuery = "",
-//            searchMode = SearchMode.FAVORITE,
-//            onQueryChange = {},
-//            modifier = Modifier.padding(10.dp))
-//    }
+    AndroidStudyTheme(dynamicColor = false) {
+        AirportList(
+            listName = stringResource(R.string.airport_list_favorite_routes),
+            flightDetails = SampleDataProvider.flightDetails,
+            onFavoriteClick = { _, _, _ -> }
+        )
+    }
 }

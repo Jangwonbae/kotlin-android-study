@@ -19,6 +19,7 @@ import com.wbjang.data_persistence_codelab_flight_search.ui.FlightSearchAppBody
 import com.wbjang.data_persistence_codelab_flight_search.ui.SearchMode
 import com.wbjang.data_persistence_codelab_flight_search.ui.item.common.AirportList
 import com.wbjang.data_persistence_codelab_flight_search.ui.navigation.NavigationDestination
+import com.wbjang.data_persistence_codelab_flight_search.ui.preview.SampleDataProvider
 import com.wbjang.data_persistence_codelab_flight_search.ui.theme.AndroidStudyTheme
 object SearchedAirportListDestination: NavigationDestination {
     override val route = "searched_airport_list"
@@ -62,14 +63,10 @@ fun SearchedAirportListScreen(
 @Composable
 fun SearchedAirportListScreenPreview() {
     AndroidStudyTheme(dynamicColor = false) {
-        FlightSearchAppBody(
-            searchQuery = "",
-            searchMode = SearchMode.FAVORITE,
-            onQueryChange = {},
-            modifier = Modifier.padding(10.dp),
-            selectedIataCode = "",
-            onAirportClick = {},
-            onClearSelectedAirport = { }
+        AirportList(
+            listName = stringResource(R.string.airport_list_flights_from) + " ${SampleDataProvider.airport1.iataCode}",
+            flightDetails = SampleDataProvider.flightDetails,
+            onFavoriteClick = { _, _, _ -> }
         )
     }
 }

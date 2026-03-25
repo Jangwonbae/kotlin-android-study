@@ -17,10 +17,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.wbjang.data_persistence_codelab_flight_search.data.Airport
 import com.wbjang.data_persistence_codelab_flight_search.ui.FlightSearchAppBody
 import com.wbjang.data_persistence_codelab_flight_search.ui.SearchMode
 import com.wbjang.data_persistence_codelab_flight_search.ui.item.common.AirportInfoText
 import com.wbjang.data_persistence_codelab_flight_search.ui.navigation.NavigationDestination
+import com.wbjang.data_persistence_codelab_flight_search.ui.preview.SampleDataProvider
 import com.wbjang.data_persistence_codelab_flight_search.ui.theme.AndroidStudyTheme
 object RecommendedAirportListDestination: NavigationDestination {
     override val route = "recommended_airport_list"
@@ -40,12 +42,23 @@ fun RecommendedAirportListScreen(
         recommendedAirportListViewModel.updateSearchQuery(searchQuery)
     }
     val recommendedAirports by recommendedAirportListViewModel.recommendedAirports.collectAsState()
+    RecommendedAirportList(
+        recommendedAirports = recommendedAirports,
+        onNavigateSearchedAirportList = onNavigateSearchedAirportList,
+        modifier = modifier
+        )
+}
+@Composable
+fun RecommendedAirportList(
+    recommendedAirports: List<Airport>,
+    onNavigateSearchedAirportList: (String) -> Unit,
+    modifier: Modifier = Modifier
+) {
     LazyColumn(
         modifier = modifier
             .fillMaxSize()
             .padding(start = 15.dp, end = 15.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
-//        verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         items(
             items = recommendedAirports,
@@ -64,11 +77,10 @@ fun RecommendedAirportListScreen(
 @Preview(showBackground = true)
 @Composable
 fun RecommendedAirportListScreenPreview() {
-//    AndroidStudyTheme(dynamicColor = false) {
-//        FlightSearchAppBody(
-//            searchQuery = "",
-//            searchMode = SearchMode.RECOMMENDED,
-//            onQueryChange = {},
-//            modifier = Modifier.padding(10.dp))
-//    }
+    AndroidStudyTheme(dynamicColor = false) {
+        RecommendedAirportList(
+            recommendedAirports = SampleDataProvider.airportList,
+            onNavigateSearchedAirportList = {}
+        )
+    }
 }

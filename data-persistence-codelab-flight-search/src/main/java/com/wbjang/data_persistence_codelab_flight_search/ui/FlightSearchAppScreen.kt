@@ -238,13 +238,11 @@ fun SearchBar(
 
 @Preview(showBackground = true)
 @Composable
-fun FlightSearchAppScreenPreview() {
+fun SearchBarPreview() {
     AndroidStudyTheme(dynamicColor = false) {
-//        FlightSearchAppBody(
-//            searchQuery = "",
-//            searchMode = SearchMode.FAVORITE,
-//            onQueryChange = {},
-//            modifier = Modifier.padding(10.dp)
-//        )
+        SearchBar(
+            query = "",
+            onQueryChange = { }
+        )
     }
 }
