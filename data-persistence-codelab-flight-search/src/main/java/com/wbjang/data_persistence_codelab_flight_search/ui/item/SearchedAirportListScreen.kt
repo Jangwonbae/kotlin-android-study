@@ -61,11 +61,15 @@ fun SearchedAirportListScreen(
 @Preview(showBackground = true)
 @Composable
 fun SearchedAirportListScreenPreview() {
-//    AndroidStudyTheme(dynamicColor = false) {
-//        FlightSearchAppBody(
-//            searchQuery = "",
-//            searchMode = SearchMode.FAVORITE,
-//            onQueryChange = {},
-//            modifier = Modifier.padding(10.dp))
-//    }
+    AndroidStudyTheme(dynamicColor = false) {
+        FlightSearchAppBody(
+            searchQuery = "",
+            searchMode = SearchMode.FAVORITE,
+            onQueryChange = {},
+            modifier = Modifier.padding(10.dp),
+            selectedIataCode = "",
+            onAirportClick = {},
+            onClearSelectedAirport = { }
+        )
+    }
 }

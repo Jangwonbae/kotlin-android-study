@@ -5,4 +5,5 @@
     <string name="airport_list_favorite_routes">Favorite Routes</string>
     <string name="airport_card_depart">DEPART</string>
     <string name="airport_card_arrive">ARRIVE</string>
+    <string name="airport_list_no_flights">"There are no flights to show"</string>
 </resources>
