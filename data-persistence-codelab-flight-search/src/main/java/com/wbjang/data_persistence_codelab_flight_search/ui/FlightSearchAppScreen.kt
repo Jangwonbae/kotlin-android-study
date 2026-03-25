@@ -99,6 +99,8 @@ fun FlightSearchAppBody(
     modifier: Modifier = Modifier
 ) {
     val navController = rememberNavController()
+    
+    // 네비게이션 로직을 한 곳(LaunchedEffect)에서 관리하여 중복 popBackStack을 방지합니다.
     LaunchedEffect(searchMode) {
         when (searchMode) {
             SearchMode.RECOMMENDED -> {
@@ -113,6 +115,7 @@ fun FlightSearchAppBody(
             }
         }
     }
+    
     Column(
         modifier = modifier.fillMaxSize(),
         verticalArrangement = Arrangement.spacedBy(20.dp),
@@ -125,9 +128,8 @@ fun FlightSearchAppBody(
             navController = navController,
             searchQuery = searchQuery,
             onNavigateBack = {
+                // 쿼리만 비우면 위의 LaunchedEffect가 감지하여 안전하게 popBackStack을 처리합니다.
                 onQueryChange("")
-                navController.popBackStack()
-                /*TODO: 뒤로 가기 정리*/
             }
         )
     }
@@ -143,24 +145,19 @@ fun SearchBar(
     val focusManager = LocalFocusManager.current
     var isFocused by remember { mutableStateOf(false) }
 
-
+    // 포커스가 있을 때만 뒤로 가기를 가로채서 포커스를 해제합니다.
     BackHandler(enabled = isFocused) {
-        // 뒤로 가기를 눌렀을 때 포커스를 해제함
         focusManager.clearFocus()
     }
+
     TextField(
         value = query,
-        onValueChange = {
-            onQueryChange(it)
-        },
+        onValueChange = { onQueryChange(it) },
         modifier = modifier
             .fillMaxWidth()
             .focusRequester(focusRequester)
-            .onFocusChanged { state ->
-                // 포커스 상태를 추적하여 BackHandler의 활성화 여부 결정
-                isFocused = state.isFocused
-            },
-        textStyle = MaterialTheme.typography.bodyMedium, // 입력 텍스트 스타일 적용
+            .onFocusChanged { state -> isFocused = state.isFocused },
+        textStyle = MaterialTheme.typography.bodyMedium,
         placeholder = {
             Text(
                 text = stringResource(R.string.search_bar_label),
@@ -170,54 +167,32 @@ fun SearchBar(
         leadingIcon = {
             if(query.isEmpty()){
                 IconButton(
-                    onClick = {focusRequester.requestFocus()},
-                    modifier = Modifier
-                        .padding(start = 8.dp)
-                        .size(48.dp),
-                            content = {
-                        Icon(Icons.Default.Search,
-                            contentDescription = null,
-                            modifier = Modifier.size(24.dp)
-                        ) }
-                )
-            }else {
+                    onClick = { focusRequester.requestFocus() },
+                    modifier = Modifier.padding(start = 8.dp).size(48.dp)
+                ) {
+                    Icon(Icons.Default.Search, contentDescription = null, modifier = Modifier.size(24.dp))
+                }
+            } else {
                 Spacer(modifier = Modifier.width(48.dp))
             }
         },
-
         trailingIcon = {
             if(query.isNotEmpty()) {
                 IconButton(
-                    onClick = {
-                        onQueryChange("")
-                    },
-                    modifier = Modifier
-                        .padding(end = 8.dp)
-                        .size(48.dp),
-                    content = {
-                        Icon(Icons.Filled.Close,
-                            contentDescription = null,
-                            modifier = Modifier.size(24.dp)
-                        )
-                    }
-                )
+                    onClick = { onQueryChange("") },
+                    modifier = Modifier.padding(end = 8.dp).size(48.dp)
+                ) {
+                    Icon(Icons.Filled.Close, contentDescription = null, modifier = Modifier.size(24.dp))
+                }
             }
         },
-        keyboardOptions = KeyboardOptions(
-            imeAction = ImeAction.Done
-        ),
-        keyboardActions = KeyboardActions(
-            onDone = {
-                focusManager.clearFocus()
-            }
-        ),
+        keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
+        keyboardActions = KeyboardActions(onDone = { focusManager.clearFocus() }),
         singleLine = true,
         shape = RoundedCornerShape(50),
         colors = TextFieldDefaults.colors(
             focusedIndicatorColor = Color.Transparent,
             unfocusedIndicatorColor = Color.Transparent,
-            disabledIndicatorColor = Color.Transparent,
-            errorIndicatorColor = Color.Transparent,
             focusedContainerColor = MaterialTheme.colorScheme.primaryContainer,
             unfocusedContainerColor = MaterialTheme.colorScheme.primaryContainer
         ),
@@ -232,6 +207,7 @@ fun FlightSearchAppScreenPreview() {
             searchQuery = "",
             searchMode = SearchMode.FAVORITE,
             onQueryChange = {},
-            modifier = Modifier.padding(10.dp))
+            modifier = Modifier.padding(10.dp)
+        )
     }
 }
