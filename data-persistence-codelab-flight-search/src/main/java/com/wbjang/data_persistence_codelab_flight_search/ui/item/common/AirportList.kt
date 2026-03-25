@@ -11,7 +11,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.wbjang.data_persistence_codelab_flight_search.data.Airport
 import com.wbjang.data_persistence_codelab_flight_search.data.FlightDetail
 
 @Composable

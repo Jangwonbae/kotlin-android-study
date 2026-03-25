@@ -2,6 +2,8 @@ package com.wbjang.data_persistence_codelab_flight_search.ui.item
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -19,12 +21,18 @@ object FavoriteAirportListDestination: NavigationDestination {
 }
 
 @Composable
-fun FavoriteAirportListScreen(){
-    val favoriteAirportListViewModel : FavoriteAirportListViewModel = viewModel(factory = FavoriteAirportListViewModel.Factory)
+fun FavoriteAirportListScreen(
+    favoriteAirportListViewModel : FavoriteAirportListViewModel = viewModel(factory = FavoriteAirportListViewModel.Factory)
+){
+    val favoriteFlightDetail by favoriteAirportListViewModel.favoriteAirports.collectAsState()
 
-//    AirportList(
-//        listName = stringResource(R.string.airport_list_favorite_routes)
-//    )
+    AirportList(
+        listName = stringResource(R.string.airport_list_favorite_routes),
+        flightDetails = favoriteFlightDetail,
+        onFavoriteClick = { depart, dest, isFav ->
+            favoriteAirportListViewModel.toggleFavorite(depart, dest, isFav)
+        },
+    )
 }
 
 @Preview(showBackground = true)
