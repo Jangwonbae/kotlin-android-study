@@ -35,6 +35,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusManager
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.focus.onFocusChanged
@@ -111,7 +112,8 @@ fun FlightSearchAppBody(
     modifier: Modifier = Modifier
 ) {
     val navController = rememberNavController()
-    
+    val focusManager = LocalFocusManager.current
+
     // 네비게이션 로직을 한 곳(LaunchedEffect)에서 관리하여 중복 popBackStack을 방지합니다.
     LaunchedEffect(searchMode) {
         LogUtil.d("searchMode = ${searchMode.name}")
@@ -128,11 +130,13 @@ fun FlightSearchAppBody(
                 }
             }
             SearchMode.FAVORITE -> {
+                focusManager.clearFocus()
                 navController.popBackStack(FavoriteAirportListDestination.route, inclusive = false)
             }
             SearchMode.SEARCHED -> {
                 if (currentRoute != SearchedAirportListDestination.routeWithArgs) {
                     selectedIataCode?.let { iataCode ->
+                        focusManager.clearFocus()
                         navController.navigate("${SearchedAirportListDestination.route}/$iataCode") {
                             launchSingleTop = true
                         }
@@ -148,7 +152,8 @@ fun FlightSearchAppBody(
     ) {
         SearchBar(
             query = searchQuery,
-            onQueryChange = onQueryChange
+            onQueryChange = onQueryChange,
+            focusManager = focusManager
         )
         FlightSearchNavHost(
             navController = navController,
@@ -156,7 +161,6 @@ fun FlightSearchAppBody(
             onNavigateSearchedAirportList = { searchedIataCode-> onAirportClick(searchedIataCode)},
             onClearSelectedAirport = onClearSelectedAirport,
             onNavigateBack = {
-                // 쿼리만 비우면 위의 LaunchedEffect가 감지하여 안전하게 popBackStack을 처리합니다.
                 onQueryChange("")
             }
         )
@@ -167,10 +171,11 @@ fun FlightSearchAppBody(
 fun SearchBar(
     query : String,
     onQueryChange: (String) -> Unit,
+    focusManager: FocusManager = LocalFocusManager.current,
     modifier: Modifier = Modifier,
 ) {
     val focusRequester = remember { FocusRequester() }
-    val focusManager = LocalFocusManager.current
+
     var isFocused by remember { mutableStateOf(false) }
 
     // 포커스가 있을 때만 뒤로 가기를 가로채서 포커스를 해제합니다.
@@ -196,7 +201,9 @@ fun SearchBar(
             if(query.isEmpty()){
                 IconButton(
                     onClick = { focusRequester.requestFocus() },
-                    modifier = Modifier.padding(start = 8.dp).size(48.dp)
+                    modifier = Modifier
+                        .padding(start = 8.dp)
+                        .size(48.dp)
                 ) {
                     Icon(Icons.Default.Search, contentDescription = null, modifier = Modifier.size(24.dp))
                 }
@@ -208,7 +215,9 @@ fun SearchBar(
             if(query.isNotEmpty()) {
                 IconButton(
                     onClick = { onQueryChange("") },
-                    modifier = Modifier.padding(end = 8.dp).size(48.dp)
+                    modifier = Modifier
+                        .padding(end = 8.dp)
+                        .size(48.dp)
                 ) {
                     Icon(Icons.Filled.Close, contentDescription = null, modifier = Modifier.size(24.dp))
                 }
