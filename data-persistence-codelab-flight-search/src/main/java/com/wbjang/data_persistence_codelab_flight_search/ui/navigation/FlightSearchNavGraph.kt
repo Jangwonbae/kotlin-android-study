@@ -1,5 +1,9 @@
 package com.wbjang.data_persistence_codelab_flight_search.ui.navigation
 
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
@@ -27,7 +31,19 @@ fun FlightSearchNavHost(
     NavHost(
         modifier = modifier,
         navController = navController,
-        startDestination = FavoriteAirportListDestination.route
+        startDestination = FavoriteAirportListDestination.route,
+        enterTransition = {
+            slideInHorizontally(initialOffsetX = { it }) + fadeIn()
+        },
+        exitTransition = {
+            slideOutHorizontally(targetOffsetX = { -it }) + fadeOut()
+        },
+        popEnterTransition = {
+            slideInHorizontally(initialOffsetX = { -it }) + fadeIn()
+        },
+        popExitTransition = {
+            slideOutHorizontally(targetOffsetX = { it }) + fadeOut()
+        }
     ) {
         composable(route = FavoriteAirportListDestination.route){
             FavoriteAirportListScreen()
