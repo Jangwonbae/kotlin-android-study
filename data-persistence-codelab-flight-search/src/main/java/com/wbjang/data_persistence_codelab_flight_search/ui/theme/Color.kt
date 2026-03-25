@@ -23,6 +23,7 @@ val md_theme_light_background = Color(0xFFF8F9FF) // 아주 밝은 하늘색 기
 val md_theme_light_onBackground = Color(0xFF191C20)
 val md_theme_light_surface = Color(0xFFF8F9FF)
 val md_theme_light_onSurface = Color(0xFF191C20)
+val md_theme_light_surfaceVariant = Color(0xFFDEE0EA)
 
 // Dark Theme Colors (야간 비행 모드 느낌)
 val md_theme_dark_primary = Color(0xFFA9C7FF)
@@ -35,3 +36,4 @@ val md_theme_dark_onSecondary = Color(0xFF283041)
 val md_theme_dark_background = Color(0xFF111318)
 val md_theme_dark_surface = Color(0xFF111318)
 val md_theme_dark_onSurface = Color(0xFFE2E2E6)
+val md_theme_dark_surfaceVariant = Color(0xFF44474F)

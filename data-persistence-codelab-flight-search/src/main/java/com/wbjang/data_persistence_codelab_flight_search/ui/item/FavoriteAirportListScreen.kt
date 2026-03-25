@@ -19,19 +19,19 @@ object FavoriteAirportListDestination: NavigationDestination {
 
 @Composable
 fun FavoriteAirportListScreen(){
-    AirportList(
-        listName = stringResource(R.string.airport_list_favorite_routes)
-    )
+//    AirportList(
+//        listName = stringResource(R.string.airport_list_favorite_routes)
+//    )
 }
 
 @Preview(showBackground = true)
 @Composable
 fun FavoriteAirportListScreenPreview() {
-    AndroidStudyTheme(dynamicColor = false) {
-        FlightSearchAppBody(
-            searchQuery = "",
-            searchMode = SearchMode.FAVORITE,
-            onQueryChange = {},
-            modifier = Modifier.padding(10.dp))
-    }
+//    AndroidStudyTheme(dynamicColor = false) {
+//        FlightSearchAppBody(
+//            searchQuery = "",
+//            searchMode = SearchMode.FAVORITE,
+//            onQueryChange = {},
+//            modifier = Modifier.padding(10.dp))
+//    }
 }

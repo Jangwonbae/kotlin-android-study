@@ -1,5 +1,6 @@
 package com.wbjang.data_persistence_codelab_flight_search.ui
 
+import android.util.Log
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -46,16 +47,21 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.rememberNavController
 import com.wbjang.data_persistence_codelab_flight_search.R
+import com.wbjang.data_persistence_codelab_flight_search.ui.item.FavoriteAirportListDestination
 import com.wbjang.data_persistence_codelab_flight_search.ui.item.RecommendedAirportListDestination
+import com.wbjang.data_persistence_codelab_flight_search.ui.item.SearchedAirportListDestination
 import com.wbjang.data_persistence_codelab_flight_search.ui.navigation.FlightSearchNavHost
 import com.wbjang.data_persistence_codelab_flight_search.ui.theme.AndroidStudyTheme
+import com.wbjang.data_persistence_codelab_flight_search.util.LogUtil
 
+private const val TAG = "FlightSearchAppScreen"
 @Composable
 fun FlightSearchAppScreen(
     modifier: Modifier = Modifier,
     flightSearchAppViewModel: FlightSearchAppViewModel = viewModel(factory = FlightSearchAppViewModel.Factory)
 ) {
     val searchQuery by flightSearchAppViewModel.searchQuery.collectAsState()
+    val selectedIataCode by flightSearchAppViewModel.selectedIataCode.collectAsState()
     val searchMode by flightSearchAppViewModel.searchMode.collectAsState()
     Scaffold(
         topBar = { FlightSearchAppBar() },
@@ -70,8 +76,11 @@ fun FlightSearchAppScreen(
             ) {
             FlightSearchAppBody(
                 searchQuery = searchQuery,
+                selectedIataCode = selectedIataCode,
                 searchMode = searchMode,
                 onQueryChange = { flightSearchAppViewModel.updateSearchQuery(it) },
+                onAirportClick = { iataCode -> flightSearchAppViewModel.selectAirport(iataCode) },
+                onClearSelectedAirport = { flightSearchAppViewModel.clearSelectedAirport() },
                 modifier = Modifier.padding(10.dp)
             )
         }
@@ -94,23 +103,40 @@ fun FlightSearchAppBar(modifier: Modifier = Modifier) {
 @Composable
 fun FlightSearchAppBody(
     searchQuery: String,
+    selectedIataCode: String?,
     searchMode: SearchMode,
     onQueryChange: (String) -> Unit,
+    onAirportClick: (String) -> Unit,
+    onClearSelectedAirport: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     val navController = rememberNavController()
     
     // 네비게이션 로직을 한 곳(LaunchedEffect)에서 관리하여 중복 popBackStack을 방지합니다.
     LaunchedEffect(searchMode) {
+        LogUtil.d("searchMode = ${searchMode.name}")
+        val currentRoute = navController.currentBackStackEntry?.destination?.route
         when (searchMode) {
             SearchMode.RECOMMENDED -> {
-                navController.navigate(RecommendedAirportListDestination.route) {
-                    launchSingleTop = true
+                if (currentRoute == SearchedAirportListDestination.routeWithArgs) {
+                    navController.popBackStack()
+                }
+                else if (currentRoute != RecommendedAirportListDestination.route) {
+                    navController.navigate(RecommendedAirportListDestination.route) {
+                        launchSingleTop = true
+                    }
                 }
             }
             SearchMode.FAVORITE -> {
-                if (navController.previousBackStackEntry != null) {
-                    navController.popBackStack()
+                navController.popBackStack(FavoriteAirportListDestination.route, inclusive = false)
+            }
+            SearchMode.SEARCHED -> {
+                if (currentRoute != SearchedAirportListDestination.routeWithArgs) {
+                    selectedIataCode?.let { iataCode ->
+                        navController.navigate("${SearchedAirportListDestination.route}/$iataCode") {
+                            launchSingleTop = true
+                        }
+                    }
                 }
             }
         }
@@ -127,6 +153,8 @@ fun FlightSearchAppBody(
         FlightSearchNavHost(
             navController = navController,
             searchQuery = searchQuery,
+            onNavigateSearchedAirportList = { searchedIataCode-> onAirportClick(searchedIataCode)},
+            onClearSelectedAirport = onClearSelectedAirport,
             onNavigateBack = {
                 // 쿼리만 비우면 위의 LaunchedEffect가 감지하여 안전하게 popBackStack을 처리합니다.
                 onQueryChange("")
@@ -203,11 +231,11 @@ fun SearchBar(
 @Composable
 fun FlightSearchAppScreenPreview() {
     AndroidStudyTheme(dynamicColor = false) {
-        FlightSearchAppBody(
-            searchQuery = "",
-            searchMode = SearchMode.FAVORITE,
-            onQueryChange = {},
-            modifier = Modifier.padding(10.dp)
-        )
+//        FlightSearchAppBody(
+//            searchQuery = "",
+//            searchMode = SearchMode.FAVORITE,
+//            onQueryChange = {},
+//            modifier = Modifier.padding(10.dp)
+//        )
     }
 }

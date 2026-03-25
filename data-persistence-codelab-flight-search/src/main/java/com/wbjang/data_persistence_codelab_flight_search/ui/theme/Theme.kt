@@ -36,6 +36,7 @@ private val LightColorScheme = lightColorScheme(
     onBackground = md_theme_light_onBackground,
     surface = md_theme_light_surface,
     onSurface = md_theme_light_onSurface,
+    surfaceVariant = md_theme_light_surfaceVariant
 )
 
 private val DarkColorScheme = darkColorScheme(
@@ -49,6 +50,7 @@ private val DarkColorScheme = darkColorScheme(
     onBackground = md_theme_dark_onSurface,
     surface = md_theme_dark_surface,
     onSurface = md_theme_dark_onSurface,
+    surfaceVariant = md_theme_dark_surfaceVariant
 )
 @Composable
 fun AndroidStudyTheme(

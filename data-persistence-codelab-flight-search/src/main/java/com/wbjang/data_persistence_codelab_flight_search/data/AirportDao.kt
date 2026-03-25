@@ -11,4 +11,12 @@ interface AirportDao {
 
     @Query("SELECT * FROM airport WHERE UPPER(iata_code) LIKE UPPER('%' || :query || '%') OR UPPER(name) LIKE UPPER('%' || :query || '%')")
     fun searchAirports(query: String) : Flow<List<Airport>>
+
+    @Query("SELECT * FROM airport WHERE iata_code = :iataCode")
+    fun getAirportByCode(iataCode: String): Flow<Airport>
+
+    @Query("SELECT * FROM airport WHERE iata_code != :departureCode ORDER BY passengers DESC")
+    fun getArrivalAirports(departureCode: String): Flow<List<Airport>>
+
+
 }

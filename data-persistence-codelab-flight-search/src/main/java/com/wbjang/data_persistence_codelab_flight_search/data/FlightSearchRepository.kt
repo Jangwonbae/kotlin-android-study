@@ -5,6 +5,12 @@ import kotlinx.coroutines.flow.Flow
 interface FlightSearchRepository {
     fun getAllAirportsStream(): Flow<List<Airport>>
 
-    fun searchAirports(query: String) : Flow<List<Airport>>
+    fun searchAirportsStream(query: String) : Flow<List<Airport>>
+
+    fun getAirportByCodeStream(iataCode: String): Flow<Airport>
+
+    fun getArrivalAirportsStream(departureCode: String): Flow<List<Airport>>
+
+
 
 }

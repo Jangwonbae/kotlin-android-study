@@ -28,6 +28,7 @@ object RecommendedAirportListDestination: NavigationDestination {
 @Composable
 fun RecommendedAirportListScreen(
     searchQuery: String,
+    onNavigateSearchedAirportList: (String) -> Unit,
     onNavigateBack: () -> Unit,
     modifier: Modifier = Modifier,
     recommendedAirportListViewModel: RecommendedAirportListViewModel = viewModel(factory = RecommendedAirportListViewModel.Factory)
@@ -44,14 +45,16 @@ fun RecommendedAirportListScreen(
             .fillMaxSize()
             .padding(start = 15.dp, end = 15.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(8.dp)
+//        verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         items(
             items = recommendedAirports,
             key = { it.id }
         ) { airport->
             AirportInfoText(
-                modifier = Modifier.clickable {},
+                modifier = Modifier
+                    .clickable {onNavigateSearchedAirportList(airport.iataCode)}
+                    .padding(vertical = 5.dp, horizontal = 4.dp),
                 iataCode = airport.iataCode,
                 airportName = airport.name
             )
@@ -61,11 +64,11 @@ fun RecommendedAirportListScreen(
 @Preview(showBackground = true)
 @Composable
 fun RecommendedAirportListScreenPreview() {
-    AndroidStudyTheme(dynamicColor = false) {
-        FlightSearchAppBody(
-            searchQuery = "",
-            searchMode = SearchMode.RECOMMENDED,
-            onQueryChange = {},
-            modifier = Modifier.padding(10.dp))
-    }
+//    AndroidStudyTheme(dynamicColor = false) {
+//        FlightSearchAppBody(
+//            searchQuery = "",
+//            searchMode = SearchMode.RECOMMENDED,
+//            onQueryChange = {},
+//            modifier = Modifier.padding(10.dp))
+//    }
 }

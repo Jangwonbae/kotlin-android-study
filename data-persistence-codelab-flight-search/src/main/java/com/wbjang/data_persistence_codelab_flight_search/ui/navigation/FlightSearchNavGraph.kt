@@ -4,8 +4,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.navArgument
 import com.wbjang.data_persistence_codelab_flight_search.ui.item.FavoriteAirportListDestination
 import com.wbjang.data_persistence_codelab_flight_search.ui.item.FavoriteAirportListScreen
 import com.wbjang.data_persistence_codelab_flight_search.ui.item.RecommendedAirportListDestination
@@ -17,6 +19,8 @@ import com.wbjang.data_persistence_codelab_flight_search.ui.item.SearchedAirport
 fun FlightSearchNavHost(
     navController: NavHostController,
     searchQuery: String,
+    onNavigateSearchedAirportList: (String) -> Unit,
+    onClearSelectedAirport: () -> Unit,
     onNavigateBack: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -28,12 +32,22 @@ fun FlightSearchNavHost(
         composable(route = FavoriteAirportListDestination.route){
             FavoriteAirportListScreen()
         }
-        composable(route = SearchedAirportListDestination.route){
-            SearchedAirportListScreen()
+        composable(
+            //navigate 시 인자 넘겨주기
+            route = SearchedAirportListDestination.routeWithArgs,
+            arguments = listOf(navArgument(SearchedAirportListDestination.iataCodeArg) { type = NavType.StringType })
+        ) {
+            SearchedAirportListScreen(
+                searchQuery = searchQuery,
+                onClearSelectedAirport = onClearSelectedAirport
+            )
         }
         composable(route = RecommendedAirportListDestination.route){
             RecommendedAirportListScreen(
                 searchQuery,
+                onNavigateSearchedAirportList = { iataCode->
+                    onNavigateSearchedAirportList(iataCode)
+                },
                 onNavigateBack = onNavigateBack
             )
         }
