@@ -49,7 +49,7 @@ Coroutines/rest-api 학습 (26.03.09 ~ 26.03.17)
 - coroutines/rest-api/coil codelab practice : [연습: Amphibians 앱 빌드](https://developer.android.com/codelabs/basic-android-kotlin-compose-practice-amphibians-app?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-compose-unit-5-pathway-2%3Fhl%3Dko&hl=ko#0)
 - coroutines/rest-api/coil codelab project : [프로젝트:  Google Books API 활용하여 서가 앱 만들기](https://developer.android.com/codelabs/basic-android-kotlin-compose-bookshelf?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-compose-unit-5-pathway-2%3Fhl%3Dko&hl=ko#1)
 
-Data persistence 학습 (26.03.18 ~ )
+Data persistence 학습 (26.03.18 ~ 26.03.25)
 - Room codelab 따라하기 1 : [Room을 사용하여 데이터 유지](https://developer.android.com/codelabs/basic-android-kotlin-compose-persisting-data-room?hl=ko&continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-compose-unit-6-pathway-2%3Fhl%3Dko%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-compose-persisting-data-room#11)
 - Room codelab 따라하기 2 : [Room을 사용하여 데이터 읽기 및 업데이트](https://developer.android.com/codelabs/basic-android-kotlin-compose-update-data-room?hl=ko&continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-compose-unit-6-pathway-2%3Fhl%3Dko%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-compose-update-data-room#7)
 - Room codelab 따라하기 3 : [연습: Bus Schedule 앱 빌드](https://developer.android.com/codelabs/basic-android-kotlin-compose-practice-bus-schedule-app?hl=ko&continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-compose-unit-6-pathway-2%3Fhl%3Dko%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-compose-practice-bus-schedule-app#7)
@@ -65,7 +65,8 @@ Data persistence 학습 (26.03.18 ~ )
   
   <img width="704" height="434" alt="Flight_Search_App_Screen_Shot" src="https://github.com/user-attachments/assets/df261ff6-741d-4ea2-91f0-8660a8c8c4c3" />
 
-
+WorkManager 학습 (26.03.26 ~)
+- WorkManager codelab : [WorkManager로 백그라운드 작업](https://developer.android.com/codelabs/basic-android-kotlin-compose-workmanager?hl=ko&continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-compose-unit-7-pathway-1%3Fhl%3Dko%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-compose-workmanager#0)
 
 Hilt 학습
 - hilt 초기 Gradle 설정 및 기존 프로젝트에 적용해보기

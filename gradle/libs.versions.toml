@@ -14,6 +14,7 @@ material3WindowSizeClass = "1.4.0"
 material3 = "1.4.0"
 ui = "1.10.3"
 identityCredential = "20231002"
+lifecycleRuntimeCompose = "2.10.0"
 
 [libraries]
 androidx-compose-bom-v20230601 = { module = "androidx.compose:compose-bom", version.ref = "composeBomVersion" }
@@ -37,6 +38,7 @@ androidx-compose-material3-window-size-class1 = { group = "androidx.compose.mate
 androidx-material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "material3" }
 androidx-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "ui" }
 identity-credential = { group = "com.android.identity", name = "identity-credential", version.ref = "identityCredential" }
+androidx-lifecycle-runtime-compose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "lifecycleRuntimeCompose" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

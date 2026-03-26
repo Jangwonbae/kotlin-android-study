@@ -46,6 +46,7 @@
             <option value="$PROJECT_DIR$/data-persistence-room-codelab" />
             <option value="$PROJECT_DIR$/data-persistence-room-codelab-practice" />
             <option value="$PROJECT_DIR$/hilt-kakaotalk-oauth" />
+            <option value="$PROJECT_DIR$/work-manager-codelab" />
           </set>
         </option>
       </GradleProjectSettings>
