@@ -72,7 +72,7 @@ WorkManager 학습 (26.03.26 ~ 26.03.27)
 
 Views and Compose 학습 (26.03.27 ~ )
 - Views and Compose codelab : [뷰를 사용하여 Android 앱 빌드](https://developer.android.com/codelabs/basic-android-kotlin-compose-app-with-views?hl=ko&continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-compose-unit-8-pathway-1%3Fhl%3Dko%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-compose-app-with-views#1)
-
+- Views and Compose codelab : [뷰 기반 앱에 Compose 추가](https://developer.android.com/codelabs/basic-android-kotlin-training-compose-add-compose-to-a-view-based-app?hl=ko&continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-compose-unit-8-pathway-1%3Fhl%3Dko%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-compose-add-compose-to-a-view-based-app#0)
 
 Hilt 학습
 - hilt 초기 Gradle 설정 및 기존 프로젝트에 적용해보기
