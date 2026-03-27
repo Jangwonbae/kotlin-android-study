@@ -65,10 +65,14 @@ Data persistence 학습 (26.03.18 ~ 26.03.25)
   
   <img width="704" height="434" alt="Flight_Search_App_Screen_Shot" src="https://github.com/user-attachments/assets/df261ff6-741d-4ea2-91f0-8660a8c8c4c3" />
 
-WorkManager 학습 (26.03.26 ~)
+WorkManager 학습 (26.03.26 ~ 26.03.27)
 - WorkManager codelab : [WorkManager로 백그라운드 작업](https://developer.android.com/codelabs/basic-android-kotlin-compose-workmanager?hl=ko&continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-compose-unit-7-pathway-1%3Fhl%3Dko%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-compose-workmanager#0)
 - WorkManager codelab : [고급 WorkManager 및 테스트](https://developer.android.com/codelabs/basic-android-kotlin-compose-verify-background-work?hl=ko&continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-compose-unit-7-pathway-1%3Fhl%3Dko%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-compose-verify-background-work#10)
 - WorkManager codelab practice : [연습: Water Me! 앱](https://developer.android.com/codelabs/basic-android-kotlin-compose-practice-water-me-app?hl=ko&continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-compose-unit-7-pathway-1%3Fhl%3Dko%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-compose-practice-water-me-app#1)
+
+Views and Compose 학습 (26.03.27 ~ )
+- Views and Compose codelab : [뷰를 사용하여 Android 앱 빌드](https://developer.android.com/codelabs/basic-android-kotlin-compose-app-with-views?hl=ko&continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-compose-unit-8-pathway-1%3Fhl%3Dko%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-compose-app-with-views#1)
+
 
 Hilt 학습
 - hilt 초기 Gradle 설정 및 기존 프로젝트에 적용해보기
