@@ -56,7 +56,6 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
-    //viewModel life cycle
-    val lifecycle_version = "2.10.0"
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:${lifecycle_version}")
+    //viewModel
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
 }

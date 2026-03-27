@@ -56,6 +56,5 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
-    val lottieVersion = "5.0.3"
-    implementation("com.airbnb.android:lottie-compose:${lottieVersion}")
+    implementation(libs.airbnb.lottie.compose)
 }

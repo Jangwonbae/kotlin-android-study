@@ -75,12 +75,11 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
-    val LATEST_VERSION = "2.20.1"
-    implementation("com.kakao.sdk:v2-all:${LATEST_VERSION}") // 전체 모듈 추가, 2.11.0 버전부터 지원
-    implementation("com.kakao.sdk:v2-user:${LATEST_VERSION}") // 카카오 로그인 API 모듈
-    implementation("com.kakao.sdk:v2-share:${LATEST_VERSION}") // 카카오톡 공유 API 모듈
-    implementation("com.kakao.sdk:v2-talk:${LATEST_VERSION}") // 카카오톡 채널, 카카오톡 소셜, 카카오톡 메시지 API 모듈
-    implementation("com.kakao.sdk:v2-friend:${LATEST_VERSION}") // 피커 API 모듈
-    implementation("com.kakao.sdk:v2-navi:${LATEST_VERSION}") // 카카오내비 API 모듈
-    implementation("com.kakao.sdk:v2-cert:${LATEST_VERSION}") // 카카오톡 인증 서비스 API 모듈
+    implementation(libs.kakao.all)// 전체 모듈 추가, 2.11.0 버전부터 지원
+    implementation(libs.kakao.user)// 카카오 로그인 API 모듈
+    implementation(libs.kakao.share)// 카카오톡 공유 API 모듈
+    implementation(libs.kakao.talk)// 카카오톡 채널, 카카오톡 소셜, 카카오톡 메시지 API 모듈
+    implementation(libs.kakao.friend)// 피커 API 모듈
+    implementation(libs.kakao.navi)// 카카오내비 API 모듈
+    implementation(libs.kakao.cert)// 카카오톡 인증 서비스 API 모듈
 }

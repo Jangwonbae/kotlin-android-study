@@ -3,7 +3,7 @@ import java.util.Properties
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
-    id("org.jetbrains.kotlin.plugin.serialization") version "2.3.10"
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -70,17 +70,22 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
     //viewmodel
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1")
-    // Retrofit
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    // Retrofit with Kotlin serialization Converter
-    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0")
-    implementation("com.squareup.okhttp3:okhttp:4.11.0")
-    // Kotlin serialization
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.10.0")
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+
+    //Retrofit
+    implementation(libs.bundles.network)
+//    implementation(libs.retrofit.core)
+//    // Retrofit with Kotlin serialization Converter
+//    implementation(libs.retrofit.converter.kotlinx)
+//    implementation(libs.okhttp.core)
+//    // Kotlin serialization
+//    implementation(libs.kotlinx.serialization.json)
+
     // Coil
-    implementation("io.coil-kt.coil3:coil-compose:3.4.0")
-    implementation("io.coil-kt.coil3:coil-network-okhttp:3.4.0")
+    implementation(libs.bundles.coil)
+//    implementation(libs.coil.compose)
+//    implementation(libs.coil.network.okhttp)
+
     //navigation
-    implementation("androidx.navigation:navigation-compose:2.9.7")
+    implementation(libs.androidx.navigation.compose)
 }

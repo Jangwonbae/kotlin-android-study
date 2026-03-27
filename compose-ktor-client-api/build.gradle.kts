@@ -59,17 +59,12 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
     //ktor 네트워크
-    val ktor_version = "1.6.8"
-    implementation("io.ktor:ktor-client-core:$ktor_version")
-    implementation("io.ktor:ktor-client-android:$ktor_version")
-    implementation("io.ktor:ktor-client-serialization:${ktor_version}")
-    implementation("io.ktor:ktor-client-logging:${ktor_version}")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.10.0")
+    implementation(libs.bundles.ktor)
+    implementation(libs.kotlinx.serialization.json)
 
     //glide
-    implementation("com.github.bumptech.glide:glide:5.0.5")
+    implementation(libs.glide.core)
 
     //viewModel
-    val lifecycle_version = "2.10.0"
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:${lifecycle_version}")
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
 }

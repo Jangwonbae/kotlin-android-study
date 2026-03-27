@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
-    id("org.jetbrains.kotlin.plugin.serialization") version "2.3.10"
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -44,7 +44,7 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom.v20230601))
+    implementation(platform(libs.androidx.compose.bom.v20260301))
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
@@ -52,20 +52,23 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom.v20230601))
+    androidTestImplementation(platform(libs.androidx.compose.bom.v20260301))
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     //viewModel
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1")
-    // Retrofit
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    // Retrofit with Kotlin serialization Converter
-    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0")
-    implementation("com.squareup.okhttp3:okhttp:4.11.0")
-    // Kotlin serialization
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.10.0")
-    // Coil
-    implementation("io.coil-kt.coil3:coil-compose:3.4.0")
-    implementation("io.coil-kt.coil3:coil-network-okhttp:3.4.0")
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+
+    //Retrofit
+    implementation(libs.bundles.network)
+//    implementation(libs.retrofit.core)
+//    // Retrofit with Kotlin serialization Converter
+//    implementation(libs.retrofit.converter.kotlinx)
+//    implementation(libs.okhttp.core)
+//    // Kotlin serialization
+//    implementation(libs.kotlinx.serialization.json)
+    //Coil
+    implementation(libs.bundles.coil)
+//    implementation(libs.coil.compose)
+//    implementation(libs.coil.network.okhttp
 }
