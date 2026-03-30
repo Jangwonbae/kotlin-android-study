@@ -158,6 +158,9 @@
       <SelectionState runConfigName="views-and-compose-codelab2">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
+      <SelectionState runConfigName="hilt-codelab">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
     </selectionStates>
   </component>
 </project>

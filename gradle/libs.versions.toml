@@ -12,10 +12,11 @@ composeBom = "2026.03.01"
 adsMobileSdk = "0.24.0-beta03"
 material3WindowSizeClass = "1.4.0"
 material3 = "1.4.0"
+recyclerview = "1.4.0"
 ui = "1.10.6"
 identityCredential = "20231002"
 lifecycleRuntimeCompose = "2.10.0"
-ksp = "2.3.4"
+ksp = "2.3.6"
 hilt = "2.59.2"
 work = "2.11.2"
 navigation = "2.9.7"
@@ -51,6 +52,7 @@ androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifec
 androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycleRuntimeKtx" }
 androidx-lifecycle-livedata-core-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-core-ktx", version.ref = "lifecycleRuntimeKtx" }
 
+androidx-recyclerview = { module = "androidx.recyclerview:recyclerview", version.ref = "recyclerview" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
