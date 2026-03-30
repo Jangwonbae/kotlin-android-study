@@ -155,6 +155,9 @@
       <SelectionState runConfigName="views-and-compose">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
+      <SelectionState runConfigName="views-and-compose-codelab2">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
     </selectionStates>
   </component>
 </project>

@@ -1,11 +1,12 @@
 plugins {
     alias(libs.plugins.android.application)
+//    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.google.ksp)
 }
 
 android {
-    namespace = "com.wbjang.data_persistence_codelab_flight_search"
+    namespace = "com.wbjang.views_and_compose_codelab2"
     compileSdk {
         version = release(36) {
             minorApiLevel = 1
@@ -13,7 +14,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.wbjang.data_persistence_codelab_flight_search"
+        applicationId = "com.wbjang.views_and_compose_codelab2"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
@@ -44,20 +45,19 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
-//    implementation(platform(libs.androidx.compose.bom.v20230601))
-    implementation(platform(libs.androidx.compose.bom))
+    implementation(platform(libs.androidx.compose.bom.v20260301))
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
-    //navigation
-    implementation(libs.androidx.navigation.compose)
-    //viewModel]
+
     implementation(libs.androidx.lifecycle.viewmodel.compose)
-    //Room
+
     implementation(libs.bundles.room)
     ksp(libs.androidx.room.compiler)
 
+    implementation(libs.google.android.gms.ads)
+    implementation(libs.material)
     implementation(libs.androidx.compose.material.icons.extended)
 
     testImplementation(libs.junit)
