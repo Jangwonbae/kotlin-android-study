@@ -10,6 +10,7 @@ import com.wbjang.data_persistence_codelab_flight_search.data.Airport
 import com.wbjang.data_persistence_codelab_flight_search.data.Favorite
 import com.wbjang.data_persistence_codelab_flight_search.data.FlightDetail
 import com.wbjang.data_persistence_codelab_flight_search.data.FlightSearchRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -17,8 +18,10 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class FavoriteAirportListViewModel(
+@HiltViewModel
+class FavoriteAirportListViewModel @Inject constructor(
     private val flightSearchRepository: FlightSearchRepository
 ): ViewModel() {
 
@@ -59,15 +62,6 @@ class FavoriteAirportListViewModel(
                 flightSearchRepository.insertFavorite(
                     Favorite(0, departureCode, destinationCode)
                 )
-            }
-        }
-    }
-    companion object {
-        val Factory: ViewModelProvider.Factory = viewModelFactory {
-            initializer {
-                val application = (this[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as FlightSearchApplication)
-                val flightSearchRepository = application.container.flightSearchRepository
-                FavoriteAirportListViewModel(flightSearchRepository)
             }
         }
     }

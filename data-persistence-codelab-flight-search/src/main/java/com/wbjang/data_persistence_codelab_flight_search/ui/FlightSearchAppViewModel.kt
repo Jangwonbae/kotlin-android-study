@@ -8,17 +8,20 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.wbjang.data_persistence_codelab_flight_search.FlightSearchApplication
 import com.wbjang.data_persistence_codelab_flight_search.data.FlightSearchRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
+import javax.inject.Inject
 
 enum class SearchMode {
     FAVORITE, RECOMMENDED, SEARCHED
 }
-class FlightSearchAppViewModel(flightSearchRepository: FlightSearchRepository): ViewModel() {
+@HiltViewModel
+class FlightSearchAppViewModel @Inject constructor(flightSearchRepository: FlightSearchRepository): ViewModel() {
     private val _searchQuery = MutableStateFlow("")
     val searchQuery: StateFlow<String> = _searchQuery
     private val _selectedIataCode = MutableStateFlow<String?>(null)
@@ -43,14 +46,5 @@ class FlightSearchAppViewModel(flightSearchRepository: FlightSearchRepository): 
     }
     fun clearSelectedAirport() {
         _selectedIataCode.value = null
-    }
-    companion object{
-        val Factory: ViewModelProvider.Factory = viewModelFactory {
-            initializer {
-                val application = (this[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as FlightSearchApplication)
-                val flightSearchRepository = application.container.flightSearchRepository
-                FlightSearchAppViewModel(flightSearchRepository)
-            }
-        }
     }
 }

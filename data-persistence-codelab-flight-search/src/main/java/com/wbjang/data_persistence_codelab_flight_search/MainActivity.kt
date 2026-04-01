@@ -13,7 +13,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.wbjang.data_persistence_codelab_flight_search.ui.FlightSearchAppScreen
 import com.wbjang.data_persistence_codelab_flight_search.ui.theme.AndroidStudyTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

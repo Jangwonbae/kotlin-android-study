@@ -8,6 +8,7 @@ import androidx.lifecycle.viewmodel.viewModelFactory
 import com.wbjang.data_persistence_codelab_flight_search.FlightSearchApplication
 import com.wbjang.data_persistence_codelab_flight_search.data.Airport
 import com.wbjang.data_persistence_codelab_flight_search.data.FlightSearchRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -17,8 +18,10 @@ import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.stateIn
+import javax.inject.Inject
 
-class RecommendedAirportListViewModel(
+@HiltViewModel
+class RecommendedAirportListViewModel @Inject constructor(
     private val flightSearchRepository: FlightSearchRepository
 ): ViewModel() {
     private val _searchQuery = MutableStateFlow("")
@@ -45,13 +48,4 @@ class RecommendedAirportListViewModel(
             initialValue = listOf()
         )
 
-    companion object {
-        val Factory: ViewModelProvider.Factory = viewModelFactory {
-            initializer {
-                val application = (this[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as FlightSearchApplication)
-                val flightSearchRepository = application.container.flightSearchRepository
-                RecommendedAirportListViewModel(flightSearchRepository)
-            }
-        }
-    }
 }

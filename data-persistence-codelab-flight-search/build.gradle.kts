@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.google.ksp)
+    alias(libs.plugins.google.dagger.hilt)
+
 }
 
 android {
@@ -57,6 +59,11 @@ dependencies {
     //Room
     implementation(libs.bundles.room)
     ksp(libs.androidx.room.compiler)
+
+    //hilt
+    implementation(libs.google.dagger.hilt.android)
+    ksp(libs.google.dagger.hilt.compiler)
+    implementation(libs.androidx.hilt.navigation.compose)
 
     implementation(libs.androidx.compose.material.icons.extended)
 

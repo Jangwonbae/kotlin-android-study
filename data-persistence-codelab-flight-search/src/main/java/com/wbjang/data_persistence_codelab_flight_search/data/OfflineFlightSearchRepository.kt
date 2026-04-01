@@ -1,8 +1,9 @@
 package com.wbjang.data_persistence_codelab_flight_search.data
 
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
-class OfflineFlightSearchRepository(private val airportDao: AirportDao, private val favoriteDao: FavoriteDao) :FlightSearchRepository {
+class OfflineFlightSearchRepository @Inject constructor(private val airportDao: AirportDao, private val favoriteDao: FavoriteDao) :FlightSearchRepository {
     override fun getAllAirportsStream(): Flow<List<Airport>> = airportDao.getAllItems()
     override fun searchAirportsStream(query: String): Flow<List<Airport>> = airportDao.searchAirports(query)
     override fun getAirportByCodeStream(iataCode: String): Flow<Airport> = airportDao.getAirportByCode(iataCode)

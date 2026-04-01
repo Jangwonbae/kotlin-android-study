@@ -12,21 +12,4 @@ abstract class FlightSearchDatabase: RoomDatabase() {
     abstract fun airportDao(): AirportDao
     abstract fun favoriteDao(): FavoriteDao
 
-    companion object {
-        @Volatile
-        private var INSTANCE: FlightSearchDatabase? = null
-
-        fun getDatabase(context: Context): FlightSearchDatabase {
-            return INSTANCE ?: synchronized(this) {
-                Room.databaseBuilder(
-                    context, FlightSearchDatabase::class.java, "flight_search_database"
-                )
-                    .createFromAsset("flight_search.db")
-                    .build()
-                    .also {
-                        INSTANCE = it
-                    }
-            }
-        }
-    }
 }

@@ -16,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.wbjang.data_persistence_codelab_flight_search.data.Airport
 import com.wbjang.data_persistence_codelab_flight_search.ui.FlightSearchAppBody
@@ -33,7 +34,7 @@ fun RecommendedAirportListScreen(
     onNavigateSearchedAirportList: (String) -> Unit,
     onNavigateBack: () -> Unit,
     modifier: Modifier = Modifier,
-    recommendedAirportListViewModel: RecommendedAirportListViewModel = viewModel(factory = RecommendedAirportListViewModel.Factory)
+    recommendedAirportListViewModel: RecommendedAirportListViewModel = hiltViewModel()
 ) {
     BackHandler {
         onNavigateBack()

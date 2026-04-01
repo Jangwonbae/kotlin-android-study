@@ -40,7 +40,7 @@ fragment = "1.8.9"
 legacySupportV4 = "1.0.0"
 googleAccompanist = "0.36.0"
 googlePlayServicesAds = "25.1.0"
-
+hiltNavigationCompose = "1.3.0" # 최신 안정 버전 확인 필요
 [libraries]
 androidx-compose-bom-v20260301 = { module = "androidx.compose:compose-bom", version.ref = "composeBomVersion" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -110,6 +110,7 @@ kakao-cert = { group = "com.kakao.sdk", name = "v2-cert", version.ref = "kakao" 
 
 google-dagger-hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 google-dagger-hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
 
 androidx-media3-exoplayer = { group = "androidx.media3", name = "media3-exoplayer", version.ref = "media3" }
 androidx-media3-exoplayer-dash = { group = "androidx.media3", name = "media3-exoplayer-dash", version.ref = "media3" }
