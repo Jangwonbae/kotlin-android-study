@@ -76,4 +76,6 @@ Views and Compose 학습 (26.03.27 ~ 26.03.30)
 
 Hilt 학습 (26.03.30 ~ )
 - Hilt codelab : [Android 앱에서 Hilt 사용](https://developer.android.com/codelabs/android-hilt?hl=ko#10)
-- Hilt 초기 Gradle 설정 및 기존 프로젝트에 적용해보기
+- Hilt 초기 Gradle 설정
+- Flight Search App에 Hilt 적용해보기 (Room)
+- Amphibian App에 Hilt 적용해보기 (Retrofit)

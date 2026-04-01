@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.wbjang.coroutines_rest_coil_codelab_practice.R
 import com.wbjang.coroutines_rest_coil_codelab_practice.ui.screens.AmphibiansViewModel
@@ -32,7 +33,7 @@ fun AmphibiansApp() {
         topBar = { AmphibiansTopAppBar(scrollBehavior) }
     ) { innerPadding ->
         Surface(modifier = Modifier.fillMaxSize().padding(innerPadding)) {
-            val amphibianViewModel: AmphibiansViewModel = viewModel(factory = AmphibiansViewModel.Factory)
+            val amphibianViewModel: AmphibiansViewModel = hiltViewModel()
             HomeScreen(amphibianViewModel.amphibiansUiState, modifier = Modifier.fillMaxSize())
         }
     }
