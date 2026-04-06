@@ -74,8 +74,9 @@ Views and Compose 학습 (26.03.27 ~ 26.03.30)
 - Views and Compose codelab : [뷰를 사용하여 Android 앱 빌드](https://developer.android.com/codelabs/basic-android-kotlin-compose-app-with-views?hl=ko&continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-compose-unit-8-pathway-1%3Fhl%3Dko%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-compose-app-with-views#1)
 - Views and Compose codelab : [뷰 기반 앱에 Compose 추가](https://developer.android.com/codelabs/basic-android-kotlin-training-compose-add-compose-to-a-view-based-app?hl=ko&continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-compose-unit-8-pathway-1%3Fhl%3Dko%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-compose-add-compose-to-a-view-based-app#0)
 
-Hilt 학습 (26.03.30 ~ )
+Hilt 학습 (26.03.30 ~ 26.04.06)
 - Hilt codelab : [Android 앱에서 Hilt 사용](https://developer.android.com/codelabs/android-hilt?hl=ko#10)
 - Hilt 초기 Gradle 설정
 - Flight Search App에 Hilt 적용해보기 (Room)
 - Amphibian App에 Hilt 적용해보기 (Retrofit)
+- [Football api ](https://www.football-data.org/)를 사용해서 api 테스트 해보기(di=hilt)
