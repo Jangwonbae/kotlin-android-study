@@ -80,3 +80,7 @@ Hilt 학습 (26.03.30 ~ 26.04.06)
 - Flight Search App에 Hilt 적용해보기 (Room)
 - Amphibian App에 Hilt 적용해보기 (Retrofit)
 - [Football api ](https://www.football-data.org/)를 사용해서 api 테스트 해보기(di=hilt)
+
+Glance 학습 (2026.04.10)
+- Glance codelab : [Glance로 위젯 만들기](https://developer.android.com/codelabs/glance?hl=ko&authuser=31#5)
+  
